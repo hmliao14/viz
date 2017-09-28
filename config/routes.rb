@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get "/viz" => "viz#index", as: "viz"
 
-  resources :users do
+  resources :users, param: :slug do
     resources :graph
   end
 

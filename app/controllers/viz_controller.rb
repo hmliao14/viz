@@ -1,0 +1,2 @@
+class VizController < ApplicationController
+end

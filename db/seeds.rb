@@ -7,11 +7,21 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.delete_all
 
-user1 = User.create({
+users = [{
   first_name: "Chanel",
   last_name: "Sparks",
-  current_city: "San Francisco",
+  city: "San Francisco",
   image: "http://www.boostinspiration.com/wp-content/uploads/2010/09/BlackAndWhitePhotographyPeople1.jpg",
   email: "csparks@unknown.com",
-  password_digest: "pizza",
-  })
+  password: "ipizza",
+  },{
+    first_name: "janet",
+    last_name: "Sparks",
+    city: "San Francisco",
+    image: "http://www.curiositytravels.org/wp-content/uploads/2015/12/IMG_6425.jpg",
+    email: "jsparks@unknown.com",
+    password: "ipizza",
+    },
+]
+
+  User.create(users)

@@ -1,4 +1,5 @@
 class GraphsController < ApplicationController
+
   def new
     @graph = current_user.graphs.build
   end
@@ -10,7 +11,7 @@ class GraphsController < ApplicationController
   private
 
   def graph_params
-    params.require(:graph).permit(:title, :description, :id, :image)
+    params.require(:graph).permit(:title, :x_axis, :y_axis)
   end
 
 end

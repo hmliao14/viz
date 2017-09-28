@@ -1,1 +1,5 @@
-show page
+<%= image_tag(@user.image, class: "circle") %><br>
+<b>Name: </b><%= @user.first_name %> <%= @user.last_name %><br>
+<b>Location: </b><%= @user.current_city %><br>
+<b>Date Joined: </b><%= @user.created_at.strftime("%B").to_s + " " + @user.created_at.year.to_s %><br>
+<%= link_to "Edit Profile", edit_user_path(@user.slug), class: "btn" %>

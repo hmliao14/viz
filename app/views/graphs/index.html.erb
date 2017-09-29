@@ -1,4 +1,5 @@
-index page for all graphs
+<h1>index page for all graphs</h1><br>
 <% @graphs.each do |graph| %>
   <%= graph.title %><br>
+  Author: <%= graph.user.first_name %> <%= graph.user.last_name %><br>
 <% end %>

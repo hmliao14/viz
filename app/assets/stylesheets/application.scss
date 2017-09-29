@@ -18,7 +18,19 @@
 @import "materialize";
 @import "materialize/extras/nouislider";
 
+
 .form{
   width: 500px;
   margin: 0 auto;
+}
+
+nav {
+  background-color: #272727;
+}
+h4 {
+  line-height: 75px;
+  letter-spacing: 5px;
+}
+.text-white {
+  color: #EFF9F0;
 }

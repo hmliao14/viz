@@ -2,12 +2,26 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-
+  <div class="field">
+    <%= f.label :first_name, "First Name" %><br />
+    <%= f.text_field :first_name, :maxlength => 20, :required => true,  autofocus: true %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name, "Last Name" %><br />
+    <%= f.text_field :last_name, :maxlength => 20, :required => true,  autofocus: true %>
+  </div>
+  <div class="field">
+    <%= f.label :city, "City" %><br />
+    <%= f.text_field :city, :maxlength => 20, :required => true,  autofocus: true %>
+  </div>
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email, :maxlength => 40, autofocus: true %>
   </div>
-
+  <div class="field">
+    <%= f.label :image, "Profile Photo" %><br />
+    <%= f.url_field :image, :maxlength => 200, :required => true,  autofocus: true %>
+  </div>
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
@@ -17,12 +31,12 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation, "Password Confirmation" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up", class: "btn" %>
   </div>
 <% end %>
 

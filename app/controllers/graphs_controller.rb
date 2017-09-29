@@ -13,7 +13,7 @@ class GraphsController < ApplicationController
     @graph = current_user.graphs.build(graph_params)
     @user = current_user
     if @graph.save
-      redirect_to user_path(graph.user.slug)
+      redirect_to graph_path(@graph)
     end
   end
 

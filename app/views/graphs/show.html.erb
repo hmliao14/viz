@@ -1,1 +1,12 @@
 show page for specific graph
+<h1> <%= @graph.title %> </h1>
+
+<% if @graph.graph_type == 'bar' %>
+  <%= bar_chart JobListing.group(@graph.x_axis).count %>
+<% elsif @graph.graph_type == 'line' %>
+  <%= line_chart JobListing.group(@graph.x_axis).count %>
+<% elsif @graph.graph_type == 'pie' %>
+  <%= pie_chart JobListing.group(@graph.x_axis).count %>
+<% elsif @graph.graph_type == 'column' %>
+  <%= column_chart JobListing.group(@graph.x_axis).count %>
+<% end %>

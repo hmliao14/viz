@@ -1,8 +1,12 @@
-new page for graphs for pizza
 
+
+<div class="form center">
+  new page for graphs for pizza
 <%= form_for @graph do |f| %>
-    <div>
-      Title: <%= f.text_field :title %>
-    </div>
+    Title: <%= f.text_field :title %>
+
+    <%= f.select(:x_axis, [['Category', 'category'], ['Country', 'country'], ['Post Date', 'post_date']]) %>
+    <%= f.select(:graph_type, [['Bar Graph','bar'], ['Pie Graph','pie'], ['Line Graph','line'], ['Column Graph','column']]) %>
     <%= f.submit "Create Graph", class: "btn" %>
-    <% end %>
+<% end %>
+<div>

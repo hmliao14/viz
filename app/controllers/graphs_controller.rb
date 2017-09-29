@@ -7,13 +7,14 @@ class GraphsController < ApplicationController
 
   def new
     @graph = current_user.graphs.build
+
   end
 
   def create
     @graph = current_user.graphs.build(graph_params)
     @user = current_user
     if @graph.save
-      redirect_to user_path(graph.user.slug)
+      redirect_to graph_path(@graph)
     end
   end
 
@@ -24,10 +25,15 @@ class GraphsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
+  def show
+    graph_id = params[:id]
+    @graph = Graph.find_by_id(graph_id)
+  end
+
   private
 
   def graph_params
-    params.require(:graph).permit(:title, :x_axis, :y_axis)
+    params.require(:graph).permit(:title, :x_axis, :y_axis, :graph_type)
   end
 
 end

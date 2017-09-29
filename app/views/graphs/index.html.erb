@@ -1,1 +1,4 @@
 index page for all graphs
+<%= @graphs.each do |graph| %>
+  <%= graph.title %><br>
+<% end %>

@@ -1,1 +1,8 @@
 new page for graphs for pizza
+
+<%= form_for @graph do |f| %>
+    <div>
+      Title: <%= f.text_field :title %>
+    </div>
+    <%= f.submit "Create Graph", class: "btn" %>
+    <% end %>

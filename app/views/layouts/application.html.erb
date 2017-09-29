@@ -3,7 +3,7 @@
   <head>
     <title>Viz</title>
     <%= csrf_meta_tags %>
-
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -12,8 +12,8 @@
 
   <body>
     <nav>
-    <div class="nav-wrapper">
-      <a href="" class="brand-logo">Logo</a>
+    <div class="nav-wrapper text-white">
+      <a href="" class="brand-logo">logo to go here</a>
       <a href="" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li><%= link_to "Home", root_path %></li>
@@ -43,6 +43,10 @@
   <!-- Flash method for devise -->
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
+
+  <!-- This tag allows you to change to the css of a specific page -->
+  <%= stylesheet_link_tag %>
+  <%= yield(:head) %>
 
     <%= yield %>
   </body>

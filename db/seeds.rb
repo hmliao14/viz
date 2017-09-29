@@ -24,4 +24,49 @@ users = [{
     },
 ]
 
-  User.create(users)
+User.create(users)
+
+# last requested page numbers = [1,2]
+response = HTTParty.get('https://authenticjobs.com/api/?api_key=6cf34b9cc6643879e6c569fa1e563917&method=aj.jobs.search&perpage=100&page=1&format=json')
+hash_listings = response.parsed_response["listings"]["listing"]
+
+hash_listings.each do |listing|
+
+  if listing["company"]["location"].nil?
+    @city_name = "No City Name Provided"
+    @country_name = "No Country Name Provided"
+  else
+    if listing["company"]["location"]["city"].nil?
+      @city_name = "No City Name Provided"
+    else
+      @city_name = listing["company"]["location"]["city"]
+    end
+    if listing["company"]["location"]["country"].nil?
+      @country_name = "No Country Name Provided"
+    else
+      @country_name = listing["company"]["location"]["country"]
+    end
+  end
+  job_listing = {
+    title:  listing["title"],
+    post_date: listing["post_date"],
+    company_name: listing["company"]["name"],
+    category: listing["category"]["name"],
+    keywords: listing["keywords"],
+    city: @city_name,
+    country: @country_name,
+  }
+  JobListing.create(job_listing)
+
+end
+
+
+
+
+
+
+
+
+
+
+#

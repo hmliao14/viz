@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   def edit
     @user = User.friendly.find(params[:slug])
   end
+  
   def update
     user = User.find(params[:slug])
     user.update_attributes(user_update_params)

@@ -6,19 +6,20 @@
     }
     body {
       background-color: #111111;
+      color: #EFF9F0;
     }
   </style>
 <% end %>
 
 <div class="container-header">
   <div class="text-container">
-    <div class="text-header text-white">
+    <div class="text-header">
       <h4 class="text-header-title">WEB DEVELOPMENT CAREER VISUALIZATIONS</h4><br>
       <p>Provided by us. Customized by you</p>
     </div>
   </div>
 </div>
-<div class="container text-white ">
+<div class="container">
   <div class="row">
     <div class="col s12 text-hcenter">
       <h5>ABOUT<span class="text-prim-color"> GO.DATA</span></h5>
@@ -39,32 +40,42 @@
     <div class="col s12 m4 viz-about-col">
     </div>
   </div>
-  <div class="row viz-row-cover" style="position: relative">
-    <div class="col s12 text-hcenter strip-header">
+  <div class="viz-row-cover" style="position: relative">
+    <div class="strip-header">
       <h5>OUR<span class="text-prim-color"> INFORMATION</span></h5>
     </div>
-    <div class="strip-row">
-      <div class="col s2 strip strip-1">
-      </div>
-      <div class="col s2 strip strip-2">
-      </div>
-      <div class="col s2 strip strip-3">
-      </div>
-      <div class="col s2 strip strip-4">
-      </div>
-      <div class="col s2 strip strip-5">
-      </div>
-      <div class="col s2 strip strip-6">
-      </div>
+    <div class="row strip-row">
+        <div class="col s4 m2 strip strip-1">
+          <%= link_to "BACK END WEB DEVELOPMENT", new_graph_path(@graph), class: "strip-vert-text"%>
+          <div class="viz-transparent">
+          </div>
+        </div>
+        <div class="col s4 m2 strip strip-2">
+          <%= link_to "FRONT END WEB DEVELOPMENT", new_graph_path(@graph), class: "strip-vert-text" %>
+          <div class="viz-transparent">
+          </div>
+        </div>
+        <div class="col s4 m2 strip strip-3">
+          <%= link_to "PRODUCT MANAGEMENT", new_graph_path(@graph), class: "strip-vert-text" %>
+          <div class="viz-transparent">
+          </div>
+        </div>
+        <div class="col s4 m2 strip strip-4">
+          <%= link_to "UX DESIGN", new_graph_path(@graph), class: "strip-vert-text" %>
+          <div class="viz-transparent">
+          </div>
+        </div>
+        <div class="col s4 m2 strip strip-5">
+          <%= link_to "MARKETING", new_graph_path(@graph), class: "strip-vert-text" %>
+          <div class="viz-transparent">
+          </div>
+        </div>
+        <div class="col s4 m2 strip strip-6">
+          <%= link_to "MANAGEMENT", new_graph_path(@graph), class: "strip-vert-text" %>
+          <div class="viz-transparent">
+          </div>
+        </div>
+
     </div>
-      <!-- front-end, back-end, product management, marketing, ux design -->
   </div>
 </div>
-
-
-
-
-
-
-<br>
-<br>

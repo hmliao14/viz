@@ -4,15 +4,21 @@
 .container-header {
   height: 400px;
   width: 100%;
-  position: absolute;
   top: 0;
   background: url("structure_02.jpg") bottom center no-repeat;
   background-size: cover;
   z-index: -1;
+  margin-top: -80px;
 }
 .text-header {
   position: relative;
+}
+.text-header {
+  position: absolute;
   text-align: right;
   top: 30%;
   right: 10%;
+}
+.icon {
+  width: 15%;
 }

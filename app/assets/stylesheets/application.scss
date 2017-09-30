@@ -25,12 +25,34 @@
 }
 
 nav {
-  background-color: #272727;
+  background-color: #111111;
 }
 h4 {
   line-height: 75px;
   letter-spacing: 5px;
 }
+h5 {
+  line-height: 75px;
+  letter-spacing: 5px;
+}
 .text-white {
   color: #EFF9F0;
+}
+.text-hcenter {
+  text-align: center;
+}
+.text-prim-color {
+  color: #DA9F93;
+}
+.text-title-bold {
+  line-height: 90%;
+  font-size: 2em;
+  font-weight: bolder;
+  letter-spacing: normal;
+}
+a {
+  color: #ebd4cb;
+}
+a:hover {
+  color: #DA9F93;
 }

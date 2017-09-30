@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .container-header {
-  height: 400px;
+  height: 470px;
   width: 100%;
   top: 0;
   background: url("structure_02.jpg") bottom center no-repeat;
@@ -21,4 +21,18 @@
 }
 .icon {
   width: 15%;
+}
+.viz-margin {
+  padding-left: 5% !important;
+  padding-right: 5%;
+}
+.viz-about-col {
+  height: 270px;
+  box-shadow: 10px 10px 15px 5px black;
+  background: url("cover_building_01.jpg") bottom center no-repeat;
+  background-size: cover;
+}
+.viz-row-cover {
+  border: red solid 2px;
+  height: 100vh;
 }

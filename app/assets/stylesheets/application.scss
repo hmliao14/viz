@@ -35,6 +35,10 @@ h5 {
   line-height: 75px;
   letter-spacing: 5px;
 }
+h6 {
+  // line-height: 75px;
+  letter-spacing: 5px;
+}
 .text-white {
   color: #EFF9F0;
 }
@@ -45,14 +49,18 @@ h5 {
   color: #DA9F93;
 }
 .text-title-bold {
-  line-height: 90%;
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: bolder;
   letter-spacing: normal;
 }
+.text-subtitle-bold {
+  line-height: 90%;
+  margin-top: 0;
+  letter-spacing: 2px;;
+}
 a {
-  color: #ebd4cb;
+  color: #DA9F93;
 }
 a:hover {
-  color: #DA9F93;
+  color: #ebd4cb;
 }

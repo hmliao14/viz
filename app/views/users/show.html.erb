@@ -19,11 +19,13 @@
         <div class="row">
           <div class="col s12 center-align">
             <h5>Profile Information</h5>
-            <hr>
-            <b>Location: </b><%= @user.city %><br>
-            <b>Date Joined: </b><%= @user.created_at.strftime("%B").to_s + " " + @user.created_at.year.to_s %><br>
+            <hr><br>
+            <b>Location: </b><%= @user.city %><br><br>
+            <b>Date Joined: </b><%= @user.created_at.strftime("%B").to_s + " " + @user.created_at.year.to_s %>
             <% if @user == current_user %>
-            <%= link_to "Edit Profile", edit_user_path(@user.slug), class: "btn" %><br>
+            <%= button_to edit_user_path(@user.slug), class: "btn-floating btn-medium" do  %>
+              <i class="medium material-icons">mode_edit</i>
+            <% end %>
             <% end %>
           </div>
         </div>

@@ -12,26 +12,22 @@ class GraphsController < ApplicationController
 
   def create
     if search_categories_params.permitted? && graph_params.permitted?
-      @graph = current_user.graphs.build(graph_params)
-      @user = current_user
-
-      if params["search_categories"]["name"].length > 2
-        params["search_categories"]["name"].each do | category|
-          if !category.empty?
-            new_category = SearchCategory.new
-            new_category[:name] = category
-            @graph.search_categories << new_category
-          end
+      if valid_dates == false
+        redirect_back fallback_location: new_graph_path
+      elsif params["search_categories"]["name"].length > 1
+        @graph = current_user.graphs.build(graph_params)
+        @user = current_user
+        insert_categories
+        if @graph.save
+          redirect_to graph_path(@graph)
         end
       else
-        render new_graph_path(@user)
+        flash[:error] = "Search categories cannot be empty"
+        redirect_back fallback_location: new_graph_path
       end
-
     else
-      render new_graph_path(@user)
-    end
-    if @graph.save
-      redirect_to graph_path(@graph)
+      flash[:error] = "Not permitted action"
+      redirect_back fallback_location: new_graph_path
     end
   end
 
@@ -50,7 +46,7 @@ class GraphsController < ApplicationController
     }
     category_restricts = category_restricts.join(" OR ")
     date_restricts = " AND post_date >= '#{@graph.job_begin_date}'
-                       AND post_date <= '#{@graph.job_end_date}' "
+    AND post_date <= '#{@graph.job_end_date}' "
     conditions = "(" + category_restricts + ")" + date_restricts
     @listing = JobListing.where(conditions)
 
@@ -65,36 +61,50 @@ class GraphsController < ApplicationController
     if search_categories_params.permitted? && graph_params.permitted?
       graph_id = params[:id]
       @graph = Graph.find_by_id(graph_id)
-      @graph.search_categories.destroy_all
-      @graph.update(graph_params)
-
-      if params["search_categories"]["name"].length > 1
-        params["search_categories"]["name"].each do | category|
-          if !category.empty?
-            new_category = SearchCategory.new
-            new_category[:name] = category
-            @graph.search_categories << new_category
-          end
-        end
+      if valid_dates == false
+        redirect_back fallback_location: edit_graph_path
+      elsif params["search_categories"]["name"].length > 1
+        @graph.update(graph_params)
+        @graph.search_categories.destroy_all
+        insert_categories
+        redirect_to graph_path(@graph)
       else
-        render edit_graph_path(@graph)
+        flash[:error] = "Search categories cannot be empty"
+        redirect_back fallback_location: edit_graph_path
       end
-
     else
-      render edit_graph_path(@graph)
+      flash[:error] = "Not permitted action"
+      redirect_back fallback_location: edit_graph_path
     end
-    redirect_to graph_path(@graph)
   end
 
   private
+  def valid_dates
+    bDate = params["graph"]["job_begin_date"]
+    eDate = params["graph"]["job_end_date"]
+    if bDate.empty? || eDate.empty? || bDate > eDate || bDate > Time.now.strftime('%Y-%m-%d')
+      flash[:error] = "Invalid date range"
+      return false
+    end
+  end
+
+  def insert_categories
+    params["search_categories"]["name"].each do | category|
+      if !category.empty?
+        new_category = SearchCategory.new
+        new_category[:name] = category
+        @graph.search_categories << new_category
+      end
+    end
+  end
 
   def graph_params
     params.require(:graph).permit(:title, :x_axis,
-            :y_axis, :graph_type, :job_begin_date, :job_end_date)
-  end
+      :y_axis, :graph_type, :job_begin_date, :job_end_date)
+    end
 
-  def search_categories_params
-    params.require(:search_categories).permit(:name)
-  end
+    def search_categories_params
+      params.require(:search_categories).permit(:name)
+    end
 
-end
+  end

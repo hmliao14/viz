@@ -1,13 +1,16 @@
 
+<% flash.each do |name, msg| %>
+  <div><%= msg %></div>
+<% end %>
+
 <div class="row">
   <div class="form center">
-    <h5>Title: <%= @graph.title %> </h5>
     <%= form_for @graph do |f| %>
         Title: <%= f.text_field :title %><br>
-        <%= collection_check_boxes(:search_categories, :name, JobCategory.all, :name, :name) %><br><br>
+        Job Categories<br><%= collection_check_boxes(:search_categories, :name, JobCategory.all, :name, :name) %><br><br>
         Job Posting Begin Date:<%= f.date_field :job_begin_date, class:"datepicker"%><br>
-        Job Posting End Date:<%= f.date_field :job_end_date, class:"datepicker"%><br>
-        X_axis: <%= f.select(:x_axis, [['By Category', 'category'], ['By City', 'city'], ['By Post Date', 'post_date']]) %><br>
+        Job Posting End Date:<%= f.date_field :job_end_date, class:"datepicker", value: Time.now.strftime('%Y-%m-%d') %><br>
+        Display X_Axis: <%= f.select(:x_axis, [['By Category', 'category'], ['By City', 'city'], ['By Post Date', 'post_date']]) %><br>
         Graph Type: <%= f.select(:graph_type, [['Bar Graph','bar'], ['Pie Graph','pie'], ['Line Graph','line'], ['Column Graph','column']]) %><br>
         <%= f.submit "Create Graph", class: "btn" %>
     <% end %>

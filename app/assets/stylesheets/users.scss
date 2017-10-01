@@ -1,3 +1,37 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#left {
+    height: 100%;
+    position: fixed;
+    background: #111111;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-top: 0.75rem;
+}
+#right {
+    height: auto;
+    outline: 1px solid;
+    position: absolute;
+    right: 0;
+    top: 80px;
+    background: #111111;
+    margin-right: 30px;
+}
+.circle {
+  width: 100%;
+}
+.prof-background {
+  position: relative;
+  height: 200px;
+  width: 100%;
+  padding-top: 0 !important;
+  // background-color: red;
+  background: url("prof-geometric_01.jpg") center center no-repeat;
+  background-size: 100% 100%;
+}
+.prof-photo {
+  margin-top: 120px;
+}

@@ -18,14 +18,19 @@
 @import "materialize";
 @import "materialize/extras/nouislider";
 
-
+body {
+  background-color: #282828;
+}
 .form{
   width: 500px;
   margin: 0 auto;
 }
-
 nav {
   background-color: #111111;
+}
+// with fixed navbar ensuring that the side panel shows up on click on mobile
+#sidenav-overlay {
+  z-index: 996
 }
 h4 {
   line-height: 75px;

@@ -49,7 +49,8 @@ class GraphsController < ApplicationController
       category = 'category = ' + "'#{category.name}'"
     }
     category_restricts = category_restricts.join(" OR ")
-    date_restricts = " AND post_date >= '#{@graph.job_begin_date}'"
+    date_restricts = " AND post_date >= '#{@graph.job_begin_date}'
+                       AND post_date <= '#{@graph.job_end_date}' "
     conditions = "(" + category_restricts + ")" + date_restricts
     @listing = JobListing.where(conditions)
 
@@ -88,7 +89,8 @@ class GraphsController < ApplicationController
   private
 
   def graph_params
-    params.require(:graph).permit(:title, :x_axis, :y_axis, :graph_type, :job_begin_date)
+    params.require(:graph).permit(:title, :x_axis,
+            :y_axis, :graph_type, :job_begin_date, :job_end_date)
   end
 
   def search_categories_params

@@ -2,11 +2,18 @@ show page for specific graph
 <h1> <%= @graph.title %> </h1>
 
 <% if @graph.graph_type == 'bar' %>
-  <%= bar_chart JobListing.group(@graph.x_axis).count %>
+  <%= bar_chart @listing.group(@graph.x_axis).count, legend: true,download: 'bar_chart',
+   xtitle: @graph.x_axis.upcase, ytitle: "Count"%>
 <% elsif @graph.graph_type == 'line' %>
-  <%= line_chart JobListing.group(@graph.x_axis).count %>
+  <%= line_chart @listing.group(@graph.x_axis).count,legend: true,download: 'line_chart',
+   xtitle: @graph.x_axis.upcase, ytitle: "Count" %>
 <% elsif @graph.graph_type == 'pie' %>
-  <%= pie_chart JobListing.group(@graph.x_axis).count %>
+  <%= pie_chart @listing.group(@graph.x_axis).count,legend: true,download: 'pie_chart',
+   xtitle: @graph.x_axis.upcase, ytitle: "Count" %>
 <% elsif @graph.graph_type == 'column' %>
-  <%= column_chart JobListing.group(@graph.x_axis).count %>
+  <%= column_chart @listing.group(@graph.x_axis).count,legend: true,download: 'column_chart',
+   xtitle: @graph.x_axis.upcase, ytitle: "Count" %>
 <% end %>
+
+<%= line_chart JobListing.top(:post_date, 100),legend: true,download: 'column_chart',
+ xtitle: @graph.x_axis.upcase, ytitle: "Count" %>

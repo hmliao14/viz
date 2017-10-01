@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.delete_all
 Graph.destroy_all
+JobListing.destroy_all
+JobCategory.destroy_all
 
 users = [{
   first_name: "Chanel",
@@ -61,13 +63,12 @@ hash_listings.each do |listing|
 
 end
 
-
-
-
-
-
-
-
+# make new category into the model
+response = HTTParty.get('https://authenticjobs.com/api/?api_key=6cf34b9cc6643879e6c569fa1e563917&method=aj.categories.getList&perpage=100&format=json')
+arr_categories = response.parsed_response["categories"]["category"]
+arr_categories.each do |category|
+  JobCategory.create(name: category["name"])
+end
 
 
 #

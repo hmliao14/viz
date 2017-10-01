@@ -1,7 +1,6 @@
 
-
 <div class="form center">
-  new page for graphs for pizza
+  <h5>Title: <%= @graph.title %> </h5>
   <%= form_for @graph do |f| %>
       Title: <%= f.text_field :title %>
       <%= collection_check_boxes(:search_categories, :name, JobCategory.all, :name, :name) %>
@@ -9,6 +8,6 @@
       <%= f.date_field :job_end_date, class:"datepicker"%>
       <%= f.select(:x_axis, [['Category', 'category'], ['Country', 'country'], ['Post Date', 'post_date']]) %>
       <%= f.select(:graph_type, [['Bar Graph','bar'], ['Pie Graph','pie'], ['Line Graph','line'], ['Column Graph','column']]) %>
-      <%= f.submit "Create Graph", class: "btn" %>
+      <%= f.submit "Update Graph", class: "btn" %>
   <% end %>
-<div>
+</div>

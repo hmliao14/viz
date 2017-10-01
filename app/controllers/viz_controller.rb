@@ -4,7 +4,7 @@ class VizController < ApplicationController
     # figaro    gem for hiding specific
 
     @listings = JobListing.all
-
+  
   end
 
   # @response.parsed_response.class = > hash

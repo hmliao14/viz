@@ -6,7 +6,9 @@ git_source(:github) do |repo_name|
 end
 
 gem "chartkick"
+gem "groupdate"
 gem 'httparty'
+gem 'hightop'
 
 gem 'materialize-sass'
 gem 'material_icons'

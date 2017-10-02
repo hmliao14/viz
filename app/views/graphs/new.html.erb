@@ -10,9 +10,8 @@
     <%= form_for @graph do |f| %>
         Title: <%= f.text_field :title %><br>
         Job Categories<br><%= collection_check_boxes(:search_categories, :name, JobCategory.all, :name, :name) %><br><br>
-        Display X_Axis: <%= f.select(:x_axis, [['By Job Category', 'category'], ['By Company City', 'city'], ['By Post Date', 'post_date'],
-          ['By Company Name', 'company_name']]) %><br>
-
+        Display X_Axis: <%= f.select(:x_axis, [['By Job Category', 'category'], ['By Top 10 Company Cities', 'city'], ['By Post Date', 'post_date'],
+          ['By Company Country', 'country']]) %><br>
         Graph Type: <%= f.select(:graph_type, [['Bar Graph','bar'], ['Pie Graph','pie'], ['Line Graph','line'], ['Column Graph','column']]) %><br>
         <%= f.submit "Create Graph", class: "btn" %>
     <% end %>

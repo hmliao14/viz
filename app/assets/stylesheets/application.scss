@@ -44,7 +44,12 @@ h6 {
   letter-spacing: 5px;
 }
 .btn-floating {
-      background-color: transparent;
+  background-color: transparent;
+  box-shadow: none;
+}
+.btn-floating:hover {
+  background-color: transparent;
+  box-shadow: none;
 }
 .text-white {
   color: #EFF9F0;

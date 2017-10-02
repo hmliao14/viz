@@ -2,40 +2,58 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-#left {
-    height: 100%;
-    position: fixed;
-    background: #111111;
-    margin-left: 20px;
-    margin-right: 20px;
-    padding-top: 0.75rem;
-}
-#right {
-    height: auto;
-    outline: 1px solid;
+#leftCol {
     position: absolute;
-    right: 0;
-    top: 80px;
-    background: #111111;
-    margin-right: 30px;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    padding-top: 2em;
+    padding-bottom: 2em;
 }
-.prof-background {
+#rightCol {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    overflow-y: auto;
+    padding: 2em;
+}
+.row-user-page {
   position: relative;
-  height: 110%;
+  height: 100vh;
+}
+.col-prof {
+  height: 100%;
+}
+.outside-container-prof {
+  height: 100%;
+  padding: 10px;
+  background-color: #111111;
+}
+.inside-container-prof {
+  height: 100%;
+}
+.outside-container-data {
+  padding: 10px;
+  background-color: #111111;
+}
+.background-photo {
   width: 100%;
-  padding-top: 0 !important;
   background: url("prof-geometric_01.jpg") center center no-repeat;
   background-size: 100% 100%;
+  padding: 5%;
+  position: relative;
 }
+
 .circle {
   width: 100%;
 }
-.prof-photo {
-margin-top: 10%;
-}
 .prof-title {
   line-height: 98% !important;
-  // position: absolute;
-  // bottom: 5px;
+}
+.prof-btn-edit {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }

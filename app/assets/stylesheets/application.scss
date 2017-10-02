@@ -20,8 +20,23 @@
 
 
 .form{
-  width: 500px;
+  width: 800px;
   margin: 0 auto;
+  text-align: center;
+}
+.error{
+  font-size: 20px;
+  color: red;
+  text-align: center;
+}
+label{
+  margin: 10px 20px;
+}
+
+.graph_container{
+  height:100%;
+  width:100%;
+  position:absolute;
 }
 
 nav {

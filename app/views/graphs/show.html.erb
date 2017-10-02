@@ -1,12 +1,22 @@
-show page for specific graph
-<h1> <%= @graph.title %> </h1>
 
-<% if @graph.graph_type == 'bar' %>
-  <%= bar_chart JobListing.group(@graph.x_axis).count %>
-<% elsif @graph.graph_type == 'line' %>
-  <%= line_chart JobListing.group(@graph.x_axis).count %>
-<% elsif @graph.graph_type == 'pie' %>
-  <%= pie_chart JobListing.group(@graph.x_axis).count %>
-<% elsif @graph.graph_type == 'column' %>
-  <%= column_chart JobListing.group(@graph.x_axis).count %>
-<% end %>
+<h4> <%= @graph.title %> </h4>
+
+
+<div id="container">
+  <% if @graph.graph_type == 'bar' %>
+    <%= bar_chart @listing.group(@graph.x_axis).count, legend: true,download: 'column_chart',
+    xtitle: @graph.x_axis.upcase, ytitle: "Count", height: "#{@graph.height}px", width: "#{@graph.width}px" %>
+  <% elsif @graph.graph_type == 'line' %>
+    <%= line_chart @listing.group(@graph.x_axis).count,legend: true,download: 'line_chart',
+     xtitle: @graph.x_axis.upcase, ytitle: "Count", height: "#{@graph.height}px", width: "#{@graph.width}px" %>
+  <% elsif @graph.graph_type == 'pie' %>
+    <%= pie_chart @listing.group(@graph.x_axis).count,legend: true,download: 'pie_chart',
+     xtitle: @graph.x_axis.upcase, ytitle: "Count", height: "#{@graph.height}px", width: "#{@graph.width}px" %>
+  <% elsif @graph.graph_type == 'column' %>
+    <%= column_chart @listing.group(@graph.x_axis).count,legend: true,download: 'column_chart', 
+     xtitle: @graph.x_axis.upcase, ytitle: "Count", height: "#{@graph.height}px", width: "#{@graph.width}px" %>
+  <% end %>
+
+  <%= line_chart JobListing.top(:post_date, 100),legend: true,download: 'column_chart',
+   xtitle: @graph.x_axis.upcase, ytitle: "Count" %>
+</div>

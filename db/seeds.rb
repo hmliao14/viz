@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.delete_all
 Graph.destroy_all
+JobListing.destroy_all
+JobCategory.destroy_all
 
 users = [{
   first_name: "Chanel",
@@ -30,20 +32,31 @@ User.create(users)
 # last requested page numbers = [1,2]
 response = HTTParty.get('https://authenticjobs.com/api/?api_key=6cf34b9cc6643879e6c569fa1e563917&method=aj.jobs.search&perpage=100&page=1&format=json')
 hash_listings = response.parsed_response["listings"]["listing"]
+response = HTTParty.get('https://authenticjobs.com/api/?api_key=6cf34b9cc6643879e6c569fa1e563917&method=aj.jobs.search&perpage=100&page=2&format=json')
+hash_listings = hash_listings + response.parsed_response["listings"]["listing"]
 
 hash_listings.each do |listing|
 
   if listing["company"]["location"].nil?
-    @city_name = "No City Name Provided"
-    @country_name = "No Country Name Provided"
+    @city_name = "City N/A"
+    @country_name = "Country N/A"
   else
     if listing["company"]["location"]["city"].nil?
-      @city_name = "No City Name Provided"
+      if listing["company"]["location"].nil?
+        @city_name = "City N/A"
+      else
+        @city_name = listing["company"]["location"]["name"]
+      end
     else
       @city_name = listing["company"]["location"]["city"]
     end
+    
     if listing["company"]["location"]["country"].nil?
-      @country_name = "No Country Name Provided"
+      if listing["company"]["location"].nil?
+        @country_name = "Country N/A"
+      else
+        @country_name = listing["company"]["location"]["name"]
+      end
     else
       @country_name = listing["company"]["location"]["country"]
     end
@@ -61,12 +74,14 @@ hash_listings.each do |listing|
 
 end
 
+# make new category into the model
 
-
-
-
-
-
+response = HTTParty.get('https://authenticjobs.com/api/?api_key=6cf34b9cc6643879e6c569fa1e563917&method=aj.categories.getList&perpage=100&format=json')
+arr_categories = response.parsed_response["categories"]["category"]
+arr_categories.each do |category|
+  JobCategory.create(name: category["name"])
+end
+JobCategory.create(name: "All")
 
 
 

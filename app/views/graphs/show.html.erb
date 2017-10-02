@@ -13,10 +13,8 @@
     <%= pie_chart @listing.group(@graph.x_axis).count,legend: true,download: 'pie_chart',
      xtitle: @graph.x_axis.upcase, ytitle: "Count", height: "#{@graph.height}px", width: "#{@graph.width}px" %>
   <% elsif @graph.graph_type == 'column' %>
-    <%= column_chart @listing.group(@graph.x_axis).count,legend: true,download: 'column_chart', 
+    <%= column_chart @listing.group(@graph.x_axis).count,legend: true,download: 'column_chart',
      xtitle: @graph.x_axis.upcase, ytitle: "Count", height: "#{@graph.height}px", width: "#{@graph.width}px" %>
   <% end %>
 
-  <%= line_chart JobListing.top(:post_date, 100),legend: true,download: 'column_chart',
-   xtitle: @graph.x_axis.upcase, ytitle: "Count" %>
 </div>

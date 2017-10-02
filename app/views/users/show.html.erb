@@ -47,7 +47,7 @@
       <!-- BEG container for ALL profile content -->
       <div class="outside-container-data">
         <div class="inside-container-data">
-          <h5>YOUR<span class="text-prim-color"> VIZ.DATA</span></h5>
+          <h5><%= @user.first_name.upcase %> <%= @user.last_name.upcase %>'S<span class="text-prim-color"> VIZ.DATA</span></h5>
           <hr>
           <% @graphs.each do |graph| %>
           <h6 class="text-title-bold"><%= graph.title %></h6>

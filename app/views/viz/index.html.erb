@@ -1,15 +1,15 @@
 <% content_for :head do %>
-  <style>
-    nav {
-      background-color: transparent;
-      box-shadow: none;
-      text-shadow: 1px 1px 5px black;
-    }
-    body {
-      background-color: #111111;
-      color: #EFF9F0;
-    }
-  </style>
+<style>
+nav {
+  background-color: transparent;
+  box-shadow: none;
+  text-shadow: 1px 1px 5px black;
+}
+body {
+  background-color: #111111;
+  color: #EFF9F0;
+}
+</style>
 <% end %>
 
 <div class="container-header">
@@ -46,37 +46,70 @@
       <h5>OUR<span class="text-prim-color"> INFORMATION</span></h5>
     </div>
     <div class="row strip-row">
-        <div class="col s4 m2 strip strip-1">
-          <%= link_to "BACK END WEB DEVELOPMENT", new_graph_path(@graph), class: "strip-vert-text"%>
-          <div class="viz-transparent">
-          </div>
+      <div class="col s4 m2 strip strip-1">
+        <%= link_to "BACK END WEB DEVELOPMENT", href="#def-back", class: "strip-vert-text modal-trigger"%>
+        <div class="viz-transparent">
         </div>
-        <div class="col s4 m2 strip strip-2">
-          <%= link_to "FRONT END WEB DEVELOPMENT", new_graph_path(@graph), class: "strip-vert-text" %>
-          <div class="viz-transparent">
-          </div>
+      </div>
+      <div class="col s4 m2 strip strip-2">
+        <%= link_to "FRONT END WEB DEVELOPMENT", href="#def-front", class: "strip-vert-text modal-trigger" %>
+        <div class="viz-transparent">
         </div>
-        <div class="col s4 m2 strip strip-3">
-          <%= link_to "PRODUCT MANAGEMENT", new_graph_path(@graph), class: "strip-vert-text" %>
-          <div class="viz-transparent">
-          </div>
+      </div>
+      <div class="col s4 m2 strip strip-3">
+        <%= link_to "PRODUCT MANAGEMENT", href="#def-prod-man", class: "strip-vert-text modal-trigger" %>
+        <div class="viz-transparent">
         </div>
-        <div class="col s4 m2 strip strip-4">
-          <%= link_to "UX DESIGN", new_graph_path(@graph), class: "strip-vert-text" %>
-          <div class="viz-transparent">
-          </div>
+      </div>
+      <div class="col s4 m2 strip strip-4">
+        <%= link_to "UX DESIGN", href="#def-ux", class: "strip-vert-text modal-trigger"  %>
+        <div class="viz-transparent">
         </div>
-        <div class="col s4 m2 strip strip-5">
-          <%= link_to "MARKETING", new_graph_path(@graph), class: "strip-vert-text" %>
-          <div class="viz-transparent">
-          </div>
+      </div>
+      <div class="col s4 m2 strip strip-5">
+        <%= link_to "MARKETING", href="#def-marketing", class: "strip-vert-text modal-trigger"  %>
+        <div class="viz-transparent">
         </div>
-        <div class="col s4 m2 strip strip-6">
-          <%= link_to "MANAGEMENT", new_graph_path(@graph), class: "strip-vert-text" %>
-          <div class="viz-transparent">
-          </div>
+      </div>
+      <div class="col s4 m2 strip strip-6">
+        <%= link_to "MANAGEMENT", href="#def-management", class: "strip-vert-text modal-trigger"  %>
+        <div class="viz-transparent">
         </div>
+      </div>
+    </div>
+  </div>
+</div>
 
+
+<div class="modal-for-show">
+  <div id="def-back" class="modal center-align">
+    <div class="modal-content">
+      <%= render partial: "layouts/def_back_end"%>
+    </div>
+  </div>
+  <div id="def-front" class="modal center-align">
+    <div class="modal-content">
+      <%= render partial: "layouts/def_front_end"%>
+    </div>
+  </div>
+  <div id="def-prod-man" class="modal center-align">
+    <div class="modal-content">
+      <%= render partial: "layouts/def_prod_man"%>
+    </div>
+  </div>
+  <div id="def-ux" class="modal center-align">
+    <div class="modal-content">
+      <%= render partial: "layouts/def_ux"%>
+    </div>
+  </div>
+  <div id="def-marketing" class="modal center-align">
+    <div class="modal-content">
+      <%= render partial: "layouts/def_marketing"%>
+    </div>
+  </div>
+  <div id="def-management" class="modal center-align">
+    <div class="modal-content">
+      <%= render partial: "layouts/def_management"%>
     </div>
   </div>
 </div>

@@ -1,24 +1,68 @@
-<div class= "container">
-  <div class= "row">
-    <div class="col s12 l2">
-      <%= image_tag(@user.image, class: "circle") %><br>
+<div class="container-fluid">
+  <!-- BEG row for entire page -->
+  <div class="row row-user-page">
+    <!-- BEG left column for profile -->
+    <div class="col m3 hide-on-med-and-down col-prof" id="leftCol">
+      <!-- BEG container for ALL profile content -->
+      <div class="outside-container-prof">
+        <div class="inside-container-prof">
+          <!-- BEGIN row for image container -->
+          <div class="background-photo">
+            <div class="row">
+              <div class="col m8 offset-m2">
+                <%= image_tag(@user.image, class: "circle") %>
+              </div>
+              <!-- BEGIN row for name -->
+              <div class="center-align">
+                <h5 class="prof-title"><%= @user.first_name.upcase %> <%= @user.last_name.upcase %></h5>
+              </div>
+              <!-- END row for name -->
+              <!-- BEG row for edit button -->
+              <div class="prof-btn-edit">
+                <% if @user == current_user %>
+                <%= link_to edit_user_path(@user.slug), class: "btn-floating btn-medium" do  %>
+                <i class="medium material-icons">mode_edit</i>
+                <% end %>
+                <% end %>
+              </div>
+              <!-- END row for edit button -->
+            </div>
+          </div>
+          <!-- END row for image container -->
+          <!-- BEG row for profile text contenent -->
+          <div class="center-align">
+            <h5>Profile Information</h5>
+            <hr>
+            <%= @user.city %><br>
+            <b>Date Joined: </b><%= @user.created_at.strftime("%B").to_s + " " + @user.created_at.year.to_s %>
+          </div>
+          <!-- END row for profile text contenent -->
+        </div>
+      </div>
+      <!-- END container for ALL profile content -->
     </div>
-    <div class= "col s12 l10">
-      <b>Name: </b><%= @user.first_name %> <%= @user.last_name %><br>
-      <b>Location: </b><%= @user.city %><br>
-      <b>Date Joined: </b><%= @user.created_at.strftime("%B").to_s + " " + @user.created_at.year.to_s %><br>
-      <% if @user == current_user %>
-      <%= link_to "Edit Profile", edit_user_path(@user.slug), class: "btn" %><br>
-      <% end %>
+    <!-- END column for left profile -->
+    <!-- BEG column for right data -->
+    <div class="col m12 l9" id="rightCol">
+      <!-- BEG container for ALL profile content -->
+      <div class="outside-container-data">
+        <div class="inside-container-data">
+          <h5><%= @user.first_name.upcase %> <%= @user.last_name.upcase %>'S<span class="text-prim-color"> VIZ.DATA</span></h5>
+          <hr>
+          <% @graphs.each do |graph| %>
+          <h6 class="text-title-bold"><%= graph.title %></h6>
+          <%= link_to "Read More", graph_path(graph.id) %>
+          <% if graph.user == current_user %>
+          <%= button_to "Edit Post", edit_graph_path(graph.id), method:'get', class: 'btn' %>
+          <%= button_to 'Delete', {:controller => "graphs", :action => 'show', :id => graph.id}, data:   {:confirm => "Are you sure you want to delete the #{graph.title} graph?"}, :method => :delete, class: 'btn delete-button' %>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+      <!-- END container for ALL profile content -->
+
     </div>
+    <!-- END column for right data -->
   </div>
-<h3>Visualization Favorites Below</h3>
-<% @graphs.each do |graph| %>
-  <%= graph.title %><br>
-  <%= link_to "Read More", graph_path(graph.id) %>
-  <% if graph.user == current_user %>
-    <%= button_to "Edit Post", edit_graph_path(graph.id), method:'get', class: 'btn' %>
-    <%= button_to 'Delete', {:controller => "graphs", :action => 'show', :id => graph.id}, data:   {:confirm => "Are you sure you want to delete the #{graph.title} graph?"}, :method => :delete, class: 'btn delete-button' %>
-    <% end %>
-<% end %>
+  <!-- END row for entire page -->
 </div>

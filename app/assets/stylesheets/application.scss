@@ -18,7 +18,10 @@
 @import "materialize";
 @import "materialize/extras/nouislider";
 
-
+body {
+  background-color: #282828;
+  color: #EFF9F0;
+}
 .form{
   width: 800px;
   margin: 0 auto;
@@ -38,14 +41,65 @@ label{
   width:100%;
   position:absolute;
 }
-
 nav {
-  background-color: #272727;
+  background-color: #111111;
+}
+// with fixed navbar ensuring that the side panel shows up on click on mobile
+#sidenav-overlay {
+  z-index: 996
 }
 h4 {
   line-height: 75px;
   letter-spacing: 5px;
 }
+h5 {
+  letter-spacing: 5px;
+}
+h6 {
+  letter-spacing: 5px;
+}
+.btn-floating {
+  background-color: transparent;
+  box-shadow: none;
+}
+.btn-floating:hover {
+  background-color: transparent;
+  box-shadow: none;
+}
 .text-white {
   color: #EFF9F0;
+}
+.text-hcenter {
+  text-align: center;
+}
+.text-prim-color {
+  color: #DA9F93;
+}
+.text-title-bold {
+  font-size: 1.5em;
+  font-weight: bolder;
+  letter-spacing: normal;
+}
+.text-subtitle-bold {
+  line-height: 90%;
+  margin-top: 0;
+  letter-spacing: 2px;;
+}
+a {
+  color: #DA9F93;
+}
+a:hover {
+  color: #ebd4cb;
+}
+.modal {
+  background-color: #282828;
+}
+.flashmessage {
+  border-style: solid;
+  border-color: black;
+  background-color: rgba(255, 0, 0, 0.2);
+  font-size: 120%;
+  text-align: center;
+  margin-top: 2%;
+  padding: 2%
 }

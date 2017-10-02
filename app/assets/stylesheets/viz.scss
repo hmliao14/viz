@@ -5,7 +5,7 @@
   height: 470px;
   width: 100%;
   top: 0;
-  background: url("structure_02.jpg") bottom center no-repeat;
+  background: image-url("structure_02.jpg") bottom center no-repeat;
   background-size: cover;
   z-index: -1;
   margin-top: -80px;
@@ -30,7 +30,7 @@
 .viz-about-col {
   height: 270px;
   box-shadow: 10px 10px 15px 5px black;
-  background: url("cover_building_01.jpg") bottom center no-repeat;
+  background: image-url("cover_building_01.jpg") bottom center no-repeat;
   background-size: cover;
 }
 .viz-row-cover {
@@ -78,26 +78,26 @@ a.strip-vert-text:hover {
   display: block;
 }
 .strip-1 {
-  background: url("strip_back_end.png") no-repeat;
+  background: image-url("strip_back_end.png") no-repeat;
   background-size: 100% 100%;
 }
 .strip-2 {
-  background: url("strip_front_end.png") no-repeat;
+  background: image-url("strip_front_end.png") no-repeat;
   background-size: 100% 100%;
 }
 .strip-3 {
-  background: url("strip_product_manager.png") no-repeat;
+  background: image-url("strip_product_manager.png") no-repeat;
   background-size: 100% 100%;
 }
 .strip-4 {
-  background: url("strip_ux_design.png") no-repeat;
+  background: image-url("strip_ux_design.png") no-repeat;
   background-size: 100% 100%;
 }
 .strip-5 {
-  background: url("strip_marketing.png") no-repeat;
+  background: image-url("strip_marketing.png") no-repeat;
   background-size: 100% 100%;
 }
 .strip-6 {
-  background: url("strip_management.png") no-repeat;
+  background: image-url("strip_management.png") no-repeat;
   background-size: 100% 100%;
 }

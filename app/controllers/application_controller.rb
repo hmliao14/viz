@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
+
+
+
   private
 
       # Need to redirect users to the profile page

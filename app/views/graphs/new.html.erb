@@ -13,7 +13,7 @@
         Job Posting Begin Date:<%= f.date_field :job_begin_date, class:"datepicker"%><br>
         Job Posting End Date:<%= f.date_field :job_end_date, class:"datepicker", value: Time.now.strftime('%Y-%m-%d') %><br>
         Display X_Axis: <%= f.select(:x_axis, [['By Job Category', 'category'], ['By Company City', 'city'], ['By Post Date', 'post_date'],
-          ['By Job Title', 'title'],['By Keywords', 'keywords'],['By Company Name', 'company_name']]) %><br>
+          ['By Job Title', 'title'],['By Keywords', 'keywords'],['By Company Name', 'company_name'],['By Country', 'country']]) %><br>
 
         Graph Type: <%= f.select(:graph_type, [['Bar Graph','bar'], ['Pie Graph','pie'], ['Line Graph','line'], ['Column Graph','column']]) %><br>
         Graph Width (Pixels): <%= number_field(:graph, :width, value: 1200, within: 500...2000, step: 50) %>

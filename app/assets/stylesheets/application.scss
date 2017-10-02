@@ -24,6 +24,20 @@
   margin: 0 auto;
   text-align: center;
 }
+.error{
+  font-size: 20px;
+  color: red;
+  text-align: center;
+}
+label{
+  margin: 10px 20px;
+}
+
+.graph_container{
+  height:100%;
+  width:100%;
+  position:absolute;
+}
 
 nav {
   background-color: #272727;

@@ -20,6 +20,9 @@ class GraphsController < ApplicationController
         insert_categories
         if @graph.save
           redirect_to graph_path(@graph)
+        else
+          flash[:error] = "A graphs title must be between 1 and 200 characters."
+          redirect_back fallback_location: new_graph_path
         end
       else
         flash[:error] = "Search categories cannot be empty"
@@ -67,7 +70,12 @@ class GraphsController < ApplicationController
         @graph.update(graph_params)
         @graph.search_categories.destroy_all
         insert_categories
-        redirect_to graph_path(@graph)
+        if @graph.valid?
+          redirect_to graph_path(@graph)
+        else
+          flash[:error] = "A graphs title must be between 1 and 200 characters."
+          redirect_back fallback_location: edit_graph_path
+        end
       else
         flash[:error] = "Search categories cannot be empty"
         redirect_back fallback_location: edit_graph_path
@@ -89,22 +97,31 @@ class GraphsController < ApplicationController
   end
 
   def insert_categories
-    params["search_categories"]["name"].each do | category|
-      if !category.empty?
+    @scParams = params["search_categories"]["name"]
+    if @scParams.include?('All')
+      JobCategory.all[0..-2].each do |category|
         new_category = SearchCategory.new
-        new_category[:name] = category
+        new_category[:name] = category[:name]
         @graph.search_categories << new_category
+      end
+    else
+      @scParams.each do | category|
+        if !category.empty?
+          new_category = SearchCategory.new
+          new_category[:name] = category
+          @graph.search_categories << new_category
+        end
       end
     end
   end
 
   def graph_params
-    params.require(:graph).permit(:title, :x_axis,
+    params.require(:graph).permit(:title, :x_axis, :width, :height,
       :y_axis, :graph_type, :job_begin_date, :job_end_date)
     end
 
-    def search_categories_params
+  def search_categories_params
       params.require(:search_categories).permit(:name)
-    end
-
   end
+
+end

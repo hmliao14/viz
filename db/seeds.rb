@@ -50,7 +50,7 @@ hash_listings.each do |listing|
     else
       @city_name = listing["company"]["location"]["city"]
     end
-    
+
     if listing["company"]["location"]["country"].nil?
       if listing["company"]["location"].nil?
         @country_name = "Country N/A"
@@ -65,7 +65,7 @@ hash_listings.each do |listing|
     title:  listing["title"],
     post_date: listing["post_date"],
     company_name: listing["company"]["name"],
-    category: listing["category"]["name"],
+    category: listing["category"]["name"].gsub(' &amp;', " and"),
     keywords: listing["keywords"],
     city: @city_name,
     country: @country_name,
@@ -79,7 +79,7 @@ end
 response = HTTParty.get('https://authenticjobs.com/api/?api_key=6cf34b9cc6643879e6c569fa1e563917&method=aj.categories.getList&perpage=100&format=json')
 arr_categories = response.parsed_response["categories"]["category"]
 arr_categories.each do |category|
-  JobCategory.create(name: category["name"])
+  JobCategory.create(name: category["name"].gsub(' &amp;', " and"))
 end
 JobCategory.create(name: "All")
 

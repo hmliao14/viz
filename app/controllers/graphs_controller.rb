@@ -12,9 +12,7 @@ class GraphsController < ApplicationController
 
   def create
     if search_categories_params.permitted? && graph_params.permitted?
-      if valid_dates == false
-        redirect_back fallback_location: new_graph_path
-      elsif params["search_categories"]["name"].length > 1
+      if params["search_categories"]["name"].length > 1
         @graph = current_user.graphs.build(graph_params)
         @user = current_user
         insert_categories
@@ -48,9 +46,7 @@ class GraphsController < ApplicationController
       category = 'category = ' + "'#{category.name}'"
     }
     category_restricts = category_restricts.join(" OR ")
-    date_restricts = " AND post_date >= '#{@graph.job_begin_date}'
-    AND post_date <= '#{@graph.job_end_date}' "
-    conditions = "(" + category_restricts + ")" + date_restricts
+    conditions = category_restricts
     @listing = JobListing.where(conditions)
 
   end
@@ -64,9 +60,7 @@ class GraphsController < ApplicationController
     if search_categories_params.permitted? && graph_params.permitted?
       graph_id = params[:id]
       @graph = Graph.find_by_id(graph_id)
-      if valid_dates == false
-        redirect_back fallback_location: edit_graph_path
-      elsif params["search_categories"]["name"].length > 1
+      if params["search_categories"]["name"].length > 1
         @graph.update(graph_params)
         @graph.search_categories.destroy_all
         insert_categories
@@ -87,14 +81,6 @@ class GraphsController < ApplicationController
   end
 
   private
-  def valid_dates
-    bDate = params["graph"]["job_begin_date"]
-    eDate = params["graph"]["job_end_date"]
-    if bDate.empty? || eDate.empty? || bDate > eDate || bDate > Time.now.strftime('%Y-%m-%d')
-      flash[:error] = "Invalid date range"
-      return false
-    end
-  end
 
   def insert_categories
     @scParams = params["search_categories"]["name"]
@@ -116,8 +102,7 @@ class GraphsController < ApplicationController
   end
 
   def graph_params
-    params.require(:graph).permit(:title, :x_axis, :width, :height,
-      :y_axis, :graph_type, :job_begin_date, :job_end_date)
+    params.require(:graph).permit(:title, :x_axis, :graph_type)
     end
 
   def search_categories_params

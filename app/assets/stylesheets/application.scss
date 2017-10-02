@@ -79,3 +79,12 @@ a:hover {
 .modal {
   background-color: #282828;
 }
+.flashmessage {
+  border-style: solid;
+  border-color: black;
+  background-color: rgba(255, 0, 0, 0.2);
+  font-size: 120%;
+  text-align: center;
+  margin-top: 2%;
+  padding: 2%
+}

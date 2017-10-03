@@ -10,7 +10,11 @@
           <div class="background-photo">
             <div class="row">
               <div class="col m8 offset-m2">
+                <% if @user.image.empty? %>
+                <%= image_tag(asset_path('default_profile_image.jpg'), class: "circle") %>
+                <% else %>
                 <%= image_tag(@user.image, class: "circle") %>
+                <% end %>
               </div>
               <!-- BEGIN row for name -->
               <div class="center-align">

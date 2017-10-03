@@ -1,9 +1,9 @@
 <div class="inside-container-prof">
   <!-- BEGIN row for image container -->
   <div class="background-photo">
-    <div class="row prof-button-row">
+    <div class="row prof-button-row valign-wrapper">
       <div class="col s4">
-        <%= image_tag(user.image, class: "circle") %>
+        <%= image_tag(user.image, class: "circle valign-wrapper") %>
       </div>
       <!-- BEGIN row for name -->
       <div class="col s8 test">
@@ -11,7 +11,7 @@
         <!-- BEG row for edit button -->
         <div class="prof-btn-edit">
           <% if user == current_user %>
-          <%= link_to edit_user_path(user.slug), class: "btn-floating btn-medium" do  %>
+          <%= link_to edit_user_registration_path, class: "btn-floating btn-medium" do  %>
           <i class="medium material-icons">mode_edit</i>
           <% end %>
           <% end %>

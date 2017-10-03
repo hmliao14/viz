@@ -1,47 +1,59 @@
 
-<h4> <%= @graph.title %> </h4>
+<div class="left_nav_form">
+  <%= form_for @graph do |f| %>
+      <%= f.text_field :title, placeholder: "Title"%><br>
+      Job Categories<br><%= collection_check_boxes(:search_categories, :name, JobCategory.all, :name, :name) %><br><br>
+      Display Axis By: <%= f.select(:x_axis, [['Job Category', 'category'], ['Top 10 Company Cities', 'city'], ['Post Date', 'post_date'],
+        ['Company Country', 'country']]) %><br>
+      Graph Type: <%= f.select(:graph_type, [['Bar Graph','bar'], ['Pie Graph','pie'], ['Line Graph','line'], ['Column Graph','column']]) %><br>
+      <%= f.submit "Update Graph", class: "btn" %>
+  <% end %>
+</div>
 
-<% graph_h = "100%" %>
-<% if @graph.x_axis == 'city'
-  graph_h = "450px"
-  end
-%>
+
+
+<div class="error">
+  <% flash.each do |name, msg| %>
+    <%= msg %>
+  <% end %>
+</div>
 <% if @listing.empty? %>
   <h3>There are no search results </h3>
 <% else %>
-  <div id="container">
+  <div class="graph_container">
+    <div class="graph">
+    <% graph_h = "100%" %>
     <% if @graph.graph_type == 'bar' %>
       <% if @graph.x_axis == 'city' %>
-        <%= bar_chart @listing.top(@graph.x_axis,10), legend: true,download: 'column_chart',
-        xtitle: @graph.x_axis.upcase, ytitle: "Count", height: "#{graph_h}" %>
+        <%= bar_chart @listing.top(@graph.x_axis,10),download: 'column_chart',
+        xtitle: @graph.x_axis.upcase, ytitle: "Number of Job Listings", height: "#{graph_h}" %>
       <% else %>
-        <%= bar_chart @listing.group(@graph.x_axis).count, legend: true,download: 'column_chart',
-        xtitle: @graph.x_axis.upcase, ytitle: "Count", height: "#{graph_h}" %>
+        <%= render_bar_graph %>
       <% end %>
     <% elsif @graph.graph_type == 'line' %>
       <% if @graph.x_axis == 'city' %>
-        <%= line_chart @listing.top(@graph.x_axis,10),legend: true,download: 'line_chart',
-         xtitle: @graph.x_axis.upcase, ytitle: "Count", height: "#{graph_h}" %>
+        <%= line_chart @listing.top(@graph.x_axis,10),download: 'line_chart',
+         xtitle: @graph.x_axis.upcase, ytitle: "Number of Job Listings", height: "#{graph_h}" %>
       <% else %>
-        <%= line_chart @listing.group(@graph.x_axis).count,legend: true,download: 'line_chart',
-         xtitle: @graph.x_axis.upcase, ytitle: "Count", height: "#{graph_h}" %>
+        <%= render_line_graph %>
       <% end %>
     <% elsif @graph.graph_type == 'pie' %>
     <% if @graph.x_axis == 'city' %>
-      <%= pie_chart @listing.top(@graph.x_axis, 10),legend: true,download: 'pie_chart',
-       xtitle: @graph.x_axis.upcase, ytitle: "Count", height: "#{graph_h}" %>
+      <%= pie_chart @listing.top(@graph.x_axis, 10),download: 'pie_chart',
+       xtitle: @graph.x_axis.upcase, ytitle: "Number of Job Listings", height: "#{graph_h}" %>
       <% else %>
-      <%= pie_chart @listing.group(@graph.x_axis).count,legend: true,download: 'pie_chart',
-       xtitle: @graph.x_axis.upcase, ytitle: "Count", height: "#{graph_h}" %>
+      <%= pie_chart @listing.group(@graph.x_axis).count,download: 'pie_chart',
+       xtitle: @graph.x_axis.upcase, ytitle: "Number of Job Listings", height: "#{graph_h}" %>
       <% end %>
     <% elsif @graph.graph_type == 'column' %>
       <% if @graph.x_axis == 'city' %>
-        <%= column_chart @listing.top(@graph.x_axis,10),legend: true,download: 'column_chart',
-         xtitle: @graph.x_axis.upcase, ytitle: "Count", height: "#{graph_h}" %>
+        <%= column_chart @listing.top(@graph.x_axis,10),download: 'column_chart',
+         xtitle: @graph.x_axis.upcase, ytitle: "Number of Job Listings", height: "#{graph_h}" %>
       <% else %>
-        <%= column_chart @listing.group(@graph.x_axis).count,legend: true,download: 'column_chart',
-         xtitle: @graph.x_axis.upcase, ytitle: "Count", height: "#{graph_h}" %>
+        <%= column_chart @listing.group(@graph.x_axis).count,download: 'column_chart',
+         xtitle: @graph.x_axis.upcase, ytitle: "Number of Job Listings", height: "#{graph_h}" %>
       <% end %>
     <% end %>
+    </div>
   </div>
-  <% end %>
+<% end %>

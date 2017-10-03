@@ -84,7 +84,7 @@ class GraphsController < ApplicationController
 
   def insert_categories
     @scParams = params["search_categories"]["name"]
-    if @scParams.include?('All')
+    if @scParams.include?('All Categories')
       JobCategory.all[0..-2].each do |category|
         new_category = SearchCategory.new
         new_category[:name] = category[:name]

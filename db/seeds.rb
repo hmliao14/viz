@@ -81,7 +81,7 @@ arr_categories = response.parsed_response["categories"]["category"]
 arr_categories.each do |category|
   JobCategory.create(name: category["name"].gsub(' &amp;', " and"))
 end
-JobCategory.create(name: "All")
+JobCategory.create(name: "All Categories")
 
 
 

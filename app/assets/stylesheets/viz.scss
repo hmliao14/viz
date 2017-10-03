@@ -2,10 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .container-header {
-  height: 470px;
+  height: 100vh;
   width: 100%;
   top: 0;
-  background: url("structure_02.jpg") bottom center no-repeat;
+  background: image-url("structure_02.jpg") bottom center no-repeat;
   background-size: cover;
   z-index: -1;
   margin-top: -80px;
@@ -14,27 +14,36 @@
 .text-header {
   position: absolute;
   text-align: right;
-  top: 25%;
+  top: 26%;
   right: 10%;
 }
 .text-header-title {
-    line-height: 95%;
+    font-size: 30px;
+}
+.about-section {
+  height: 100vh;
+}
+.row-top-margin {
+  margin-top: 10%;
 }
 .icon {
   width: 15%;
+  margin-top: 10px;
+  margin-bottom: 8px;
 }
 .viz-margin {
   padding-left: 5% !important;
   padding-right: 5%;
 }
 .viz-about-col {
-  height: 270px;
+  height: 290px;
   box-shadow: 10px 10px 15px 5px black;
-  background: url("cover_building_01.jpg") bottom center no-repeat;
+  background: image-url("cover_building_01.jpg") bottom center no-repeat;
   background-size: cover;
 }
 .viz-row-cover {
   height: 100vh;
+  position: relative
 }
 .strip-header {
   margin-bottom: 20px;
@@ -78,26 +87,26 @@ a.strip-vert-text:hover {
   display: block;
 }
 .strip-1 {
-  background: url("strip_back_end.png") no-repeat;
+  background: image-url("strip_back_end.png") no-repeat;
   background-size: 100% 100%;
 }
 .strip-2 {
-  background: url("strip_front_end.png") no-repeat;
+  background: image-url("strip_front_end.png") no-repeat;
   background-size: 100% 100%;
 }
 .strip-3 {
-  background: url("strip_product_manager.png") no-repeat;
+  background: image-url("strip_product_manager.png") no-repeat;
   background-size: 100% 100%;
 }
 .strip-4 {
-  background: url("strip_ux_design.png") no-repeat;
+  background: image-url("strip_ux_design.png") no-repeat;
   background-size: 100% 100%;
 }
 .strip-5 {
-  background: url("strip_marketing.png") no-repeat;
+  background: image-url("strip_marketing.png") no-repeat;
   background-size: 100% 100%;
 }
 .strip-6 {
-  background: url("strip_management.png") no-repeat;
+  background: image-url("strip_management.png") no-repeat;
   background-size: 100% 100%;
 }

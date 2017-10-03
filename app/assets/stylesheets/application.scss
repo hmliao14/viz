@@ -22,43 +22,45 @@ body {
   background-color: #282828;
   color: #EFF9F0;
 }
-.form{
+.formA {
   width: 800px;
   margin: 0 auto;
   text-align: left;
 }
-.form label{
+
+.formA label{
   margin: 10px 20px;
 }
-.graph_container{
+
+.graph_container {
   left:250px;
   height: calc(100vh - 100px);
   width: calc(100vw - 300px);
   position: absolute;
 }
-.graph{
+.graph {
   height:100%;
   width:100%;
 }
-.dropdown-content li{
+.dropdown-content li {
   font-size: 12px;
 }
-.left_nav_form{
+.left_nav_form {
   padding-left: 15px;
   font-size: 12px;
   position: absolute;
   width: 250px;
 }
-#graph_title{
+#graph_title {
   margin-bottom: 5px;
 }
 .select-dropdown{
   font-size: 12px;
 }
-.select-dropdown .active{
+.select-dropdown .active {
   font-size: 10px;
 }
-input.select-dropdown{
+input.select-dropdown {
   margin: 0 !important;
   padding: 0;
 }
@@ -85,6 +87,12 @@ h5 {
 }
 h6 {
   letter-spacing: 5px;
+}
+.btn {
+  background-color: #616163;
+}
+.btn:hover {
+  background-color: #DA9F93;
 }
 .btn-floating {
   background-color: transparent;
@@ -114,10 +122,10 @@ h6 {
   letter-spacing: 2px;;
 }
 a {
-  color: #DA9F93;
+  color: #E4572E;
 }
 a:hover {
-  color: #ebd4cb;
+  color: #DA9F93;
 }
 .modal {
   background-color: #282828;
@@ -130,4 +138,13 @@ a:hover {
   text-align: center;
   margin-top: 2%;
   padding: 2%
+}
+.prof-button-row {
+  margin-bottom: 0;
+}
+.subheader {
+  font-size: 20px;
+}
+.test {
+  position: relative;
 }

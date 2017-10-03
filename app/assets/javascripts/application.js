@@ -27,6 +27,7 @@ $(document).on("turbolinks:load", function() {
   $('.modal').modal();
 
 
+
   var checked = false;
   $('#search_categories_name_all_categories').change(function(){
     var checkboxes = $('input[type=checkbox]');

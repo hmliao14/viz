@@ -10,12 +10,11 @@
   <% end %>
 </div>
 
-
-
 <div class="error">
   <% flash.each do |name, msg| %>
     <%= msg %>
   <% end %>
+
 </div>
 <% if @listing.empty? %>
   <h3>There are no search results </h3>

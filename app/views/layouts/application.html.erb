@@ -14,29 +14,33 @@
     <div class="navbar-fixed">
       <nav>
       <div class="nav-wrapper text-white">
-        <a href="" class="brand-logo">logo to go here</a>
+        <%= link_to "Logo", root_path, class: "brand-logo" %>
         <a href="" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Visualizations", graphs_path %></li>
+          <li><%= link_to "Graphs", graphs_path %></li>
           <% if current_user %>
-            <li><%= link_to "New Graph", new_graph_path%></li>
+            <li><%= link_to "Create Graph", new_graph_path(current_user) %></li>
             <li><%= link_to "Profile", user_path(current_user) %></li>
             <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
           <% else %>
             <li><%= link_to "Sign Up", new_user_registration_path %></li>
-            <li><%= link_to "Login", new_user_session_path %></li>
+            <li><%= link_to "Sign In", new_user_session_path %></li>
           <% end %>
         </ul>
         <ul class="side-nav" id="mobile-demo">
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Visualizations", graphs_path %></li>
+
           <% if current_user %>
+            <li><%= render partial: "layouts/prof_button_header"%></li>
+            <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "Graphs", graphs_path %></li>
+            <li><%= link_to "Create", new_graph_path(current_user) %></li>
             <li><%= link_to "Profile", user_path(current_user) %></li>
             <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
           <% else %>
+            <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "Visualizations", graphs_path %></li>
             <li><%= link_to "Sign Up", new_user_registration_path %></li>
-            <li><%= link_to "Login", new_user_session_path %></li>
+            <li><%= link_to "Sign In", new_user_session_path %></li>
           <% end %>
         </ul>
       </div>

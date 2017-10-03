@@ -20,7 +20,7 @@
               <!-- BEG row for edit button -->
               <div class="prof-btn-edit">
                 <% if @user == current_user %>
-                <%= link_to edit_user_path(@user.slug), class: "btn-floating btn-medium" do  %>
+                <%= link_to(edit_user_registration_path, class: "btn-floating btn-medium") do  %>
                 <i class="medium material-icons">mode_edit</i>
                 <% end %>
                 <% end %>
@@ -34,7 +34,7 @@
             <h5>Profile Information</h5>
             <hr>
             <%= @user.city %><br>
-            <b>Date Joined: </b><%= @user.created_at.strftime("%B").to_s + " " + @user.created_at.year.to_s %>
+            <b>Member Since: </b><%= @user.created_at.strftime("%B").to_s + " " + @user.created_at.year.to_s %>
           </div>
           <!-- END row for profile text contenent -->
         </div>

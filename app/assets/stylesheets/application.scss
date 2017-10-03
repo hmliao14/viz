@@ -32,9 +32,6 @@ body {
   color: red;
   text-align: center;
 }
-label{
-  margin: 10px 20px;
-}
 
 .graph_container{
   height:100%;
@@ -57,6 +54,12 @@ h5 {
 }
 h6 {
   letter-spacing: 5px;
+}
+.btn {
+  background-color: #616163;
+}
+.btn:hover {
+  background-color: #DA9F93;
 }
 .btn-floating {
   background-color: transparent;
@@ -86,10 +89,10 @@ h6 {
   letter-spacing: 2px;;
 }
 a {
-  color: #DA9F93;
+  color: #E4572E;
 }
 a:hover {
-  color: #ebd4cb;
+  color: #DA9F93;
 }
 .modal {
   background-color: #282828;
@@ -105,6 +108,9 @@ a:hover {
 }
 .prof-button-row {
   margin-bottom: 0;
+}
+.subheader {
+  font-size: 20px;
 }
 .test {
   position: relative;

@@ -19,7 +19,7 @@
         <ul class="right hide-on-med-and-down">
           <li><%= link_to "Graphs", graphs_path %></li>
           <% if current_user %>
-            <li><%= link_to "Create", new_graph_path(current_user) %></li>
+            <li><%= link_to "Create Graph", new_graph_path(current_user) %></li>
             <li><%= link_to "Profile", user_path(current_user) %></li>
             <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
           <% else %>

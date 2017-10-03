@@ -22,10 +22,47 @@ body {
   background-color: #282828;
   color: #EFF9F0;
 }
-.form{
+.formA {
   width: 800px;
   margin: 0 auto;
-  text-align: center;
+  text-align: left;
+}
+
+.formA label{
+  margin: 10px 20px;
+}
+
+.graph_container {
+  left:250px;
+  height: calc(100vh - 100px);
+  width: calc(100vw - 300px);
+  position: absolute;
+}
+.graph {
+  height:100%;
+  width:100%;
+}
+.dropdown-content li {
+  font-size: 12px;
+}
+.left_nav_form {
+  padding-left: 15px;
+  font-size: 12px;
+  position: absolute;
+  width: 250px;
+}
+#graph_title {
+  margin-bottom: 5px;
+}
+.select-dropdown{
+  font-size: 12px;
+}
+.select-dropdown .active {
+  font-size: 10px;
+}
+input.select-dropdown {
+  margin: 0 !important;
+  padding: 0;
 }
 .error{
   font-size: 20px;
@@ -33,11 +70,7 @@ body {
   text-align: center;
 }
 
-.graph_container{
-  height:100%;
-  width:100%;
-  position:absolute;
-}
+
 nav {
   background-color: #111111;
 }

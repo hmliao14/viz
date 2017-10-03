@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'webshot'
+gem 'screencap'
 gem "chartkick"
 gem "groupdate"
 gem 'httparty'

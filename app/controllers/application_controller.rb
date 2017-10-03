@@ -19,4 +19,6 @@ class ApplicationController < ActionController::Base
     puts resource
     stored_location_for(resource)
    end
+
+   
 end

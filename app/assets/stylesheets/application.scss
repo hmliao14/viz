@@ -19,8 +19,35 @@
 @import "materialize/extras/nouislider";
 
 body {
+  font-family: 'Raleway', sans-serif;
   background-color: #282828;
   color: #EFF9F0;
+}
+p {
+  font-family: 'Raleway', sans-serif;
+}
+a {
+  color: #E4572E;
+  font-family: 'Raleway', sans-serif;
+}
+a:hover {
+  color: #DA9F93;
+}
+nav {
+  background-color: #111111;
+}
+h4 {
+  line-height: 75px;
+  letter-spacing: 5px;
+  font-family: Oswald, sans-serif;
+}
+h5 {
+  letter-spacing: 5px;
+  font-family: Oswald, sans-serif;
+}
+h6 {
+  letter-spacing: 5px;
+  font-family: Oswald, sans-serif;
 }
 .formA {
   width: 800px;
@@ -69,24 +96,9 @@ input.select-dropdown {
   color: red;
   text-align: center;
 }
-
-
-nav {
-  background-color: #111111;
-}
 // with fixed navbar ensuring that the side panel shows up on click on mobile
 #sidenav-overlay {
   z-index: 996
-}
-h4 {
-  line-height: 75px;
-  letter-spacing: 5px;
-}
-h5 {
-  letter-spacing: 5px;
-}
-h6 {
-  letter-spacing: 5px;
 }
 .btn {
   background-color: #616163;
@@ -121,12 +133,7 @@ h6 {
   margin-top: 0;
   letter-spacing: 2px;;
 }
-a {
-  color: #E4572E;
-}
-a:hover {
-  color: #DA9F93;
-}
+
 .modal {
   background-color: #282828;
 }

@@ -1,7 +1,14 @@
-<h1>index page for all graphs</h1><br>
-<% @graphs.each do |graph| %>
-
-<%= graph.title %><br>
-<b>Author: </b><%= link_to "#{graph.user.first_name} #{graph.user.last_name}", user_path(graph.user.slug) %><br>
-<%= link_to "Read More", graph_path(graph.id) %>
-<% end %>
+<div class="container">
+  <div class="row wht-bk blk-font">
+    <div class="col s12">
+      <h4>ALL<span class="text-prim-color"> GRAPHS</span></h4>
+      <hr>
+      <% @graphs.each do |graph| %>
+      <h5><%= graph.title.upcase %></h5>
+      <b>Author: </b><%= link_to "#{graph.user.first_name} #{graph.user.last_name}", user_path(graph.user.slug) %><br>
+      <b>Description: </b><%= link_to "#{graph.user.first_name} #{graph.user.last_name}", user_path(graph.user.slug) %><br>
+      <%= link_to "Review full details", graph_path(graph.id) %>
+      <% end %>
+    </div>
+  </div>
+</div>

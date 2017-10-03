@@ -37,8 +37,8 @@
           <div class="center-align">
             <h5>Profile Information</h5>
             <hr>
-            <%= @user.city %><br>
-            <b>Member Since: </b><%= @user.created_at.strftime("%B").to_s + " " + @user.created_at.year.to_s %>
+            <p><%= @user.city %><br>
+            <b>Member Since: </b><%= @user.created_at.strftime("%B").to_s + " " + @user.created_at.year.to_s %></p>
           </div>
           <!-- END row for profile text contenent -->
         </div>

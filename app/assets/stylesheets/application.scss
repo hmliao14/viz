@@ -19,19 +19,53 @@
 @import "materialize/extras/nouislider";
 
 body {
+  font-family: 'Raleway', sans-serif;
   background-color: #282828;
   color: #EFF9F0;
+}
+p {
+  font-family: 'Raleway', sans-serif;
+}
+a {
+  color: #E4572E;
+  font-family: 'Raleway', sans-serif;
+}
+a:hover {
+  color: #DA9F93;
+}
+nav {
+  background-color: #111111;
+}
+h3 {
+  letter-spacing: 5px;
+  font-family: Oswald, sans-serif;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+h4 {
+  letter-spacing: 5px;
+  font-family: Oswald, sans-serif;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+h5 {
+  letter-spacing: 2px;
+  font-family: Oswald, sans-serif;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+h6 {
+  letter-spacing: 5px;
+  font-family: Oswald, sans-serif;
 }
 .formA {
   width: 800px;
   margin: 0 auto;
   text-align: left;
 }
-
 .formA label{
   margin: 10px 20px;
 }
-
 .graph_container {
   left:250px;
   height: calc(100vh - 100px);
@@ -51,9 +85,6 @@ body {
   position: absolute;
   width: 250px;
 }
-#graph_title {
-  margin-bottom: 5px;
-}
 .select-dropdown{
   font-size: 12px;
 }
@@ -69,24 +100,9 @@ input.select-dropdown {
   color: red;
   text-align: center;
 }
-
-
-nav {
-  background-color: #111111;
-}
 // with fixed navbar ensuring that the side panel shows up on click on mobile
 #sidenav-overlay {
   z-index: 996
-}
-h4 {
-  line-height: 75px;
-  letter-spacing: 5px;
-}
-h5 {
-  letter-spacing: 5px;
-}
-h6 {
-  letter-spacing: 5px;
 }
 .btn {
   background-color: #616163;
@@ -120,12 +136,6 @@ h6 {
   line-height: 90%;
   margin-top: 0;
   letter-spacing: 2px;;
-}
-a {
-  color: #E4572E;
-}
-a:hover {
-  color: #DA9F93;
 }
 .modal {
   background-color: #282828;

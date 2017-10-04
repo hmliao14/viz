@@ -25,16 +25,19 @@ $(document).on("turbolinks:load", function() {
   $(".button-collapse").sideNav();
   $('select').material_select();
   $('.modal').modal();
-
-
-
   var checked = false;
   $('#search_categories_name_all_categories').change(function(){
     var checkboxes = $('input[type=checkbox]');
     checked = !checked;
     checkboxes.prop('checked', checked);
   });
-
+  // $('.card-hover').hover(function() {
+  //       // $(this).animate(
+  //       //   {border: "green solid 30px"}, 300)
+  //         $('.card-reveal').animate();
+  //    }, function() {
+  //        $('.card-reveal').hide();
+  //   });
   // var page = require('webpage').create();
   // page.open('https://rubyinrails.com/', function() {
   //   page.render('screenshot-rubyinrails-com.png');

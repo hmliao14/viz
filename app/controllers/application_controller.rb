@@ -15,4 +15,10 @@ class ApplicationController < ActionController::Base
      request.env['omniauth.origin'] || stored_location_for(resource) || user_path(@user)
    end
 
+   def after_update_path_for(resource)
+    puts resource
+    stored_location_for(resource)
+   end
+
+   
 end

@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.friendly.find(params[:slug])
-    @graphs = @user.graphs
+    @graphs = @user.graphs.order(created_at: :desc).page(params[:page]).per(5)
 
   end
 

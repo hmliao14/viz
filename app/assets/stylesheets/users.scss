@@ -8,7 +8,6 @@
     top: 0;
     bottom: 0;
     overflow: hidden;
-    padding-top: 2em;
     padding-bottom: 2em;
 }
 #rightCol {
@@ -16,15 +15,14 @@
     top: 0;
     bottom: 0;
     right: 0;
-    overflow-y: auto;
-    padding: 2em;
+    overflow: scroll;
+    height: 80vh;
 }
 .row-user-page {
   position: relative;
-  height: 100vh;
 }
 .col-prof {
-  height: 100%;
+  height: 85vh;
 }
 .outside-container-prof {
   height: 100%;
@@ -45,7 +43,6 @@
   padding: 5%;
   position: relative;
 }
-
 .circle {
   width: 100%;
 }
@@ -56,4 +53,13 @@
   position: absolute;
   bottom: 0;
   right: 0;
+}
+.prof-title-graph {
+  position: relative;
+  display: inline;
+  float: left;
+}
+.btn-inline {
+  display: inline;
+  float: right;
 }

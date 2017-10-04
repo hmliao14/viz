@@ -2,7 +2,7 @@ class GraphsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @graphs = Graph.all
+    @graphs = Graph.all.order(created_at: :desc).page(params[:page]).per(5)
   end
 
   def new
@@ -40,6 +40,8 @@ class GraphsController < ApplicationController
   end
 
   def show
+
+
     graph_id = params[:id]
     @graph = Graph.find_by_id(graph_id)
     category_restricts = @graph.search_categories.map { |category|

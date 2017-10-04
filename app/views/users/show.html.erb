@@ -45,7 +45,6 @@
         </div>
         <!-- END container for ALL profile content -->
       </div>
-
       <!-- END column for left profile -->
       <!-- BEG column for right data -->
       <div class="col m12 l9" id="rightCol">
@@ -61,9 +60,8 @@
               <div class="row">
                 <div class="col s12 prof-title">
                   <h5><%= graph.title.upcase %></h5>
-
                   <!-- BEG row for edit button -->
-                  <div class="af">
+                  <div>
                     <% if graph.user == current_user %>
                     <%= button_to 'Delete',{:controller => "graphs", :action => 'show', :id => graph.id}, data:   {:confirm => "Are you sure you want to delete the #{graph.title} graph?"}, :method => :delete, class: "btn-floating btn-medium black" do  %>
                     <i class="medium material-icons">delete</i>
@@ -77,9 +75,9 @@
                 <%= render partial: "shared/graph_show_content", locals: {graph: graph}%>
               </div>
               <div class="row">
-                <div class=col s12>
+                <div class="col s12">
                   <% if graph.user == current_user %>
-                  <%= button_to "Edit Post", edit_graph_path(graph.id), method:'get', class: 'btn' %>
+                  <%= button_to "Edit Graph", graph_path(graph.id), method:'get', class: 'btn' %>
                   <%= button_to 'Delete', {:controller => "graphs", :action => 'show', :id => graph.id}, data:   {:confirm => "Are you sure you want to delete the #{graph.title} graph?"}, :method => :delete, class: 'btn delete-button' %>
                 </div>
               </div>

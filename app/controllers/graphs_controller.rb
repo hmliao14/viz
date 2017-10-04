@@ -2,7 +2,7 @@ class GraphsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @graphs = Graph.all.order(created_at: :desc)
+    @graphs = Graph.all.order(created_at: :desc).page(params[:page]).per(5)
   end
 
   def new

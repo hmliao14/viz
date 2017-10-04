@@ -10,10 +10,16 @@
         </div>
       </div>
       <div class="row">
-          <%= render partial: "shared/graph_show_content", locals: {graph: graph}%>
+        <%= render partial: "shared/graph_show_content", locals: {graph: graph}%>
       </div>
       <hr>
       <% end %>
+      <div class="paginate-graphs">
+        <%= paginate @graphs %>
+        <div class="pagination_page_info">
+          <%= page_entries_info @graphs %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

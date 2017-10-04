@@ -1,19 +1,36 @@
+
 <div class="error">
   <% flash.each do |name, msg| %>
-    <%= msg %>
+  <%= msg %>
   <% end %>
 </div>
 
-<br>
-<div class="row">
-  <div class="form center">
-    <%= form_for @graph do |f| %>
-        Title: <%= f.text_field :title, placeholder: "Title"%><br>
-        Job Categories<br><%= collection_check_boxes(:search_categories, :name, JobCategory.all, :name, :name) %><br><br>
-        Display X_Axis: <%= f.select(:x_axis, [['By Job Category', 'category'], ['Top 10 Company Cities', 'city'], ['By Post Date', 'post_date'],
-          ['By Company Country', 'country'] ]) %><br>
-        Graph Type: <%= f.select(:graph_type, [['Bar Graph','bar'], ['Pie Chart','pie'], ['Line Graph','line'], ['Column Graph','column']]) %><br>
-        <%= f.submit "Create Graph", class: "btn" %>
-    <% end %>
+
+<div class="container">
+  <div class="row wht-bk blk-font row-margin">
+    <div class="col s12">
+      <h3>CREATE A<span class="text-prim-color"> GRAPH</span></h3>
+      <hr>
+      <%= form_for @graph do |f| %>
+      <div class="graph-title-input">
+        <p><b>Title: </b></p>
+        <%= f.text_field :title, placeholder: "Input Title", class: "graph-input-inline", autofocus: true %>
+      </div>
+      <p><b>Job Categories</b></p>
+      <div class="check-boxes">
+        <%= collection_check_boxes(:search_categories, :name, JobCategory.all, :name, :name, class: "check-boxes-label") %>
+      </div>
+      <p><b>Search Criteria: </b></p>
+      <div class="search-dropdown" >
+        <%= f.select(:x_axis, [['By Job Category', 'category'], ['Top 10 Company Cities', 'city'], ['By Post Date', 'post_date'],
+          ['By Company Country', 'country'] ]) %>
+        </div>
+        <p><b>Graph Type: </b></p>
+        <div class="graph-dropdown">
+          <%= f.select(:graph_type, [['Bar Graph','bar'], ['Pie Chart','pie'], ['Line Graph','line'], ['Column Graph','column']]) %>
+        </div><br>
+          <%= f.submit "Create Graph", class: "btn" %>
+        <% end %>
+      </div>
+    </div>
   </div>
-</div>

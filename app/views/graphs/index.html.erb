@@ -1,12 +1,19 @@
-<h1>index page for all graphs</h1><br>
-<% @graphs.each do |graph| %>
-
-  <%= graph.title %><br>
-  <b>Author: </b><%= link_to "#{graph.user.first_name} #{graph.user.last_name}", user_path(graph.user.slug) %><br>
-    <%= link_to "Read More", graph_path(graph.id) %>
-  <% if graph.user == current_user %>
-    <%= button_to "Edit Post", edit_graph_path(graph.id), method:'get', class: 'btn' %>
-    <%= button_to 'Delete', {:controller => "graphs", :action => 'show', :id => graph.id}, data: {:confirm => "Are you sure you want to delete the #{graph.title} graph?"}, :method => :delete, class: 'btn delete-button' %>
-  <% end %>
-
-<% end %>
+<div class="container">
+  <div class="row wht-bk blk-font">
+    <div class="col s12">
+      <h4>ALL<span class="text-prim-color"> GRAPHS</span></h4>
+      <hr>
+      <% @graphs.each do |graph| %>
+      <div class="row">
+        <div class="col s12">
+          <h5><%= graph.title.upcase %></h5>
+        </div>
+      </div>
+      <div class="row">
+          <%= render partial: "shared/graph_show_content", locals: {graph: graph}%>
+      </div>
+      <hr>
+      <% end %>
+    </div>
+  </div>
+</div>

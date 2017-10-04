@@ -33,4 +33,6 @@ $(document).on("turbolinks:load", function() {
     checkboxes.prop('checked', checked);
   });
 
+
+
 });

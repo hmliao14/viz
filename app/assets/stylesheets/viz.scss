@@ -110,3 +110,18 @@ a.strip-vert-text:hover {
   background: image-url("strip_management.png") no-repeat;
   background-size: 100% 100%;
 }
+.card-image {
+  position: relative;
+}
+// .card-title {
+//   position: absolute;
+// }
+.card-hover {
+  display: none;
+  height: 200px;
+}
+.card-hover:hover {
+  background-color: rgba(0,0,0,0.5);
+  border: red solid 12px;
+  z-index: 10;
+}

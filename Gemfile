@@ -11,7 +11,7 @@ gem "chartkick"
 gem "groupdate"
 gem 'httparty'
 gem 'hightop'
-
+gem 'kaminari'
 gem 'materialize-sass'
 gem 'material_icons'
 gem 'jquery-rails'

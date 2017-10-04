@@ -114,9 +114,6 @@ input.select-dropdown {
   background-color: transparent;
   box-shadow: none;
 }
-.text-white {
-  color: #EFF9F0;
-}
 .text-hcenter {
   text-align: center;
 }
@@ -151,6 +148,23 @@ input.select-dropdown {
 .subheader {
   font-size: 20px;
 }
-.test {
-  position: relative;
+.row-bottom {
+  margin-bottom: 0;
+}
+.btn-blk i {
+  color: #111111;
+}
+.btn-floating:hover i {
+  color: #E4572E;
+  background-color: rgba(0,0,0,0)
+}
+.wht-bk {
+  background-color: #EFF9F0;
+  box-shadow: 10px 10px 15px 5px black;
+}
+.blk-font {
+  color: #282828;
+}
+.pagination_page_info {
+  padding: 2rem 0;
 }

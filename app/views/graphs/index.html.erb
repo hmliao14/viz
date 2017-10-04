@@ -4,16 +4,22 @@
       <h4>ALL<span class="text-prim-color"> GRAPHS</span></h4>
       <hr>
       <% @graphs.each do |graph| %>
-      <div class="row">
+      <div class="row row-bottom">
         <div class="col s12">
           <h5><%= graph.title.upcase %></h5>
         </div>
       </div>
       <div class="row">
-          <%= render partial: "shared/graph_show_content", locals: {graph: graph}%>
+        <%= render partial: "shared/graph_show_content", locals: {graph: graph}%>
       </div>
       <hr>
       <% end %>
+      <div class="paginate-graphs">
+        <%= paginate @graphs %>
+        <div class="pagination_page_info">
+          <%= page_entries_info @graphs %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

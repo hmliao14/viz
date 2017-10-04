@@ -1,58 +1,67 @@
 
 <div class="left_nav_form">
-  <%= form_for @graph do |f| %>
+  <% if current_user.nil? == true %>
+  <!-- render as plain txt on left nav, display author, title, categories -->
+    <%= render "partial/graph_info" %>
+  <% elsif current_user.id == @graph.user.id %>
+    <!-- Render editable form for creator = logged user -->
+    <%= form_for @graph  do |f|  %>
       <%= f.text_field :title, placeholder: "Title"%><br>
       Job Categories<br><%= collection_check_boxes(:search_categories, :name, JobCategory.all, :name, :name) %><br><br>
       Display Axis By: <%= f.select(:x_axis, [['Job Category', 'category'], ['Top 10 Company Cities', 'city'], ['Post Date', 'post_date'],
-        ['Company Country', 'country']]) %><br>
+      ['Company Country', 'country']] ) %><br>
       Graph Type: <%= f.select(:graph_type, [['Bar Graph','bar'], ['Pie Graph','pie'], ['Line Graph','line'], ['Column Graph','column']]) %><br>
-      <%= f.submit "Update Graph", class: "btn" %>
+      <%= f.submit "Update", class: "btn" %>
+    <% end %>
+  <% else %>
+      <!-- else logged in used is diff from graph creator,enable save collection to logged in user to their own Profile -->
+        <%= render "partial/graph_info" %><br>
+        <%= form_for @graph, url: copy_graph_path, method: "post" do |f|   %>
+        <%= f.submit "Copy to Profile", class: "btn" %>
+        <% end %>
   <% end %>
 </div>
 
-<div class="error">
-  <% flash.each do |name, msg| %>
-    <%= msg %>
-  <% end %>
-
-</div>
-<% if @listing.empty? %>
-  <h3>There are no search results </h3>
-<% else %>
-  <div class="graph_container">
-    <div class="graph">
-    <% graph_h = "100%" %>
-    <% if @graph.graph_type == 'bar' %>
-      <% if @graph.x_axis == 'city' %>
+<div class="graph_container">
+  <div class="error">
+    <h3><% flash.each do |name, msg| %>
+      <%= msg %><h3>
+        <% end %>
+  </div>
+  <% if !@listing.empty? %>
+      <div class="graph">
+        <% graph_h = "100%" %>
+        <% if @graph.graph_type == 'bar' %>
+        <% if @graph.x_axis == 'city' %>
         <%= bar_chart @listing.top(@graph.x_axis,10),download: 'column_chart',
         xtitle: @graph.x_axis.upcase, ytitle: "Number of Job Listings", height: "#{graph_h}" %>
-      <% else %>
+        <% else %>
         <%= render_bar_graph %>
-      <% end %>
-    <% elsif @graph.graph_type == 'line' %>
-      <% if @graph.x_axis == 'city' %>
+        <% end %>
+  <% elsif @graph.graph_type == 'line' %>
+        <% if @graph.x_axis == 'city' %>
         <%= line_chart @listing.top(@graph.x_axis,10),download: 'line_chart',
-         xtitle: @graph.x_axis.upcase, ytitle: "Number of Job Listings", height: "#{graph_h}" %>
-      <% else %>
+        xtitle: @graph.x_axis.upcase, ytitle: "Number of Job Listings", height: "#{graph_h}" %>
+        <% else %>
         <%= render_line_graph %>
-      <% end %>
-    <% elsif @graph.graph_type == 'pie' %>
-    <% if @graph.x_axis == 'city' %>
-      <%= pie_chart @listing.top(@graph.x_axis, 10),download: 'pie_chart',
-       xtitle: @graph.x_axis.upcase, ytitle: "Number of Job Listings", height: "#{graph_h}" %>
-      <% else %>
-      <%= pie_chart @listing.group(@graph.x_axis).count,download: 'pie_chart',
-       xtitle: @graph.x_axis.upcase, ytitle: "Number of Job Listings", height: "#{graph_h}" %>
-      <% end %>
-    <% elsif @graph.graph_type == 'column' %>
-      <% if @graph.x_axis == 'city' %>
+        <% end %>
+  <% elsif @graph.graph_type == 'pie' %>
+        <% if @graph.x_axis == 'city' %>
+        <%= pie_chart @listing.top(@graph.x_axis, 10),download: 'pie_chart',
+        xtitle: @graph.x_axis.upcase, ytitle: "Number of Job Listings", height: "#{graph_h}" %>
+        <% else %>
+        <%= pie_chart @listing.group(@graph.x_axis).count,download: 'pie_chart',
+        xtitle: @graph.x_axis.upcase, ytitle: "Number of Job Listings", height: "#{graph_h}" %>
+        <% end %>
+  <% elsif @graph.graph_type == 'column' %>
+        <% if @graph.x_axis == 'city' %>
         <%= column_chart @listing.top(@graph.x_axis,10),download: 'column_chart',
-         xtitle: @graph.x_axis.upcase, ytitle: "Number of Job Listings", height: "#{graph_h}" %>
-      <% else %>
+        xtitle: @graph.x_axis.upcase, ytitle: "Number of Job Listings", height: "#{graph_h}" %>
+        <% else %>
         <%= column_chart @listing.group(@graph.x_axis).count,download: 'column_chart',
-         xtitle: @graph.x_axis.upcase, ytitle: "Number of Job Listings", height: "#{graph_h}" %>
+        xtitle: @graph.x_axis.upcase, ytitle: "Number of Job Listings", height: "#{graph_h}" %>
+        <% end %>
       <% end %>
     <% end %>
-    </div>
   </div>
-<% end %>
+</div>

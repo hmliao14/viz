@@ -12,8 +12,9 @@ class UsersController < ApplicationController
   def show
     @user = User.friendly.find(params[:slug])
     @graphs = @user.graphs
-  end
   
+  end
+
   def update
     user = User.find(params[:slug])
     user.update_attributes(user_update_params)

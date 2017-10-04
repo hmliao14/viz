@@ -54,6 +54,7 @@
           <%= link_to "Read More", graph_path(graph.id) %>
           <% if graph.user == current_user %>
           <%= button_to "Edit Post", edit_graph_path(graph.id), method:'get', class: 'btn' %>
+          
           <%= button_to 'Delete', {:controller => "graphs", :action => 'show', :id => graph.id}, data:   {:confirm => "Are you sure you want to delete the #{graph.title} graph?"}, :method => :delete, class: 'btn delete-button' %>
           <% end %>
           <% end %>

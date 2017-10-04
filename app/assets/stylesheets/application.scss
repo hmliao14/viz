@@ -36,14 +36,23 @@ a:hover {
 nav {
   background-color: #111111;
 }
-h4 {
-  line-height: 75px;
+h3 {
   letter-spacing: 5px;
   font-family: Oswald, sans-serif;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+h4 {
+  letter-spacing: 5px;
+  font-family: Oswald, sans-serif;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 h5 {
   letter-spacing: 5px;
   font-family: Oswald, sans-serif;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 h6 {
   letter-spacing: 5px;
@@ -54,11 +63,9 @@ h6 {
   margin: 0 auto;
   text-align: left;
 }
-
 .formA label{
   margin: 10px 20px;
 }
-
 .graph_container {
   left:250px;
   height: calc(100vh - 100px);
@@ -77,9 +84,6 @@ h6 {
   font-size: 12px;
   position: absolute;
   width: 250px;
-}
-#graph_title {
-  margin-bottom: 5px;
 }
 .select-dropdown{
   font-size: 12px;
@@ -133,7 +137,6 @@ input.select-dropdown {
   margin-top: 0;
   letter-spacing: 2px;;
 }
-
 .modal {
   background-color: #282828;
 }
@@ -152,9 +155,6 @@ input.select-dropdown {
 .subheader {
   font-size: 20px;
 }
-
-
-
 .test {
   position: relative;
 }

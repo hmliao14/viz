@@ -8,3 +8,39 @@
 .blk-font {
   color: #282828;
 }
+.graph_img {
+  width: 100%;
+  height: 100px;
+}
+.graph-title-input {
+  display: flex;
+  width: 100%;
+  align-items: flex-end;
+}
+input#graph_title.graph-input-inline {
+  height: 15px;
+  margin-left: 15px;
+  margin-bottom: 15px;
+  width: 100%;
+}
+.check-boxes {
+  display: flex;
+  flex-wrap: wrap;
+}
+label {
+  flex: 0 0 33%;
+  height: 3rem;
+  display: flex;
+  align-items: flex-start;
+  padding-top: 0;
+  font-size: 1rem;
+}
+.row-margin {
+  padding-bottom: 30px;
+}
+.search-dropdown {
+  color: #26a69a;
+}
+.graph-dropdown {
+  color: #26a69a;
+}

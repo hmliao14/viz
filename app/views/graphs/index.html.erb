@@ -4,10 +4,30 @@
       <h4>ALL<span class="text-prim-color"> GRAPHS</span></h4>
       <hr>
       <% @graphs.each do |graph| %>
-      <h5><%= graph.title.upcase %></h5>
-      <b>Author: </b><%= link_to "#{graph.user.first_name} #{graph.user.last_name}", user_path(graph.user.slug) %><br>
-      <b>Description: </b><%= link_to "#{graph.user.first_name} #{graph.user.last_name}", user_path(graph.user.slug) %><br>
-      <%= link_to "Review full details", graph_path(graph.id) %>
+      <div class="row">
+        <div class="col s12">
+          <h5><%= graph.title.upcase %></h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 m2">
+          <% if graph.graph_type == "pie" %>
+            <%= image_tag(asset_path('graph_pie_chart_01.png'), class: "graph_img") %>
+          <% elsif graph.graph_type == "line" %>
+            <%= image_tag(asset_path('graph_line_graph_01.png'), class: "graph_img") %>
+          <% elsif graph.graph_type == "bar" %>
+            <%= image_tag(asset_path('graph_bar_graph_01.png'), class: "graph_img") %>
+          <% elsif graph.graph_type == "column" %>
+            <%= image_tag(asset_path('graph_column_graph_01.png'), class: "graph_img") %>
+          <% end %>
+        </div>
+        <div class="col s12 m10">
+          <b>Author: </b><%= link_to "#{graph.user.first_name} #{graph.user.last_name}", user_path(graph.user.slug) %><br>
+          <b>Description: </b><%= link_to "#{graph.description}", user_path(graph.user.slug) %><br>
+          <%= link_to "Review full details", graph_path(graph.id) %><br>
+        </div>
+      </div>
+      <hr>
       <% end %>
     </div>
   </div>

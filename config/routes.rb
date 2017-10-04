@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  authenticated :user do
-    root to: 'users#show', as: :authenticated_root
-  end
+  # authenticated :user do
+  #   root to: 'users#show', as: :authenticated_root
+  # end
 
   root to: "viz#index"
   resources :users, param: :slug, :only => [:show, :edit]

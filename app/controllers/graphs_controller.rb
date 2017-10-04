@@ -51,6 +51,8 @@ class GraphsController < ApplicationController
     if @listing.empty?
       flash[:error] = "Sorry, there are no relevant results."
     end
+    # then use association to display top 10 cities by categories
+
   end
 
   def copy
@@ -80,7 +82,6 @@ class GraphsController < ApplicationController
   end
 
   def update
-    fail
     if search_categories_params.permitted? && graph_params.permitted?
       graph_id = params[:id]
       @graph = Graph.find_by_id(graph_id)
@@ -89,6 +90,7 @@ class GraphsController < ApplicationController
         @graph.search_categories.destroy_all
         insert_categories
         if @graph.valid?
+          
           redirect_to graph_path(@graph)
         else
           flash[:error] = "A graphs title must be between 1 and 200 characters."

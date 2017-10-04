@@ -8,7 +8,7 @@
     <%= form_for @graph  do |f|  %>
       <%= f.text_field :title, placeholder: "Title"%><br>
       Job Categories<br><%= collection_check_boxes(:search_categories, :name, JobCategory.all, :name, :name) %><br><br>
-      Display Axis By: <%= f.select(:x_axis, [['Job Category', 'category'], ['Top 10 Company Cities', 'city'], ['Post Date', 'post_date'],
+      Group Job Categories By: <%= f.select(:x_axis, [['Job Category', 'category'], ['Top 10 Company Cities', 'city'], ['Post Date (Weekly)', 'post_date'],
       ['Company Country', 'country']] ) %><br>
       Graph Type: <%= f.select(:graph_type, [['Bar Graph','bar'], ['Pie Graph','pie'], ['Line Graph','line'], ['Column Graph','column']]) %><br>
       <%= f.submit "Update", class: "btn" %>
@@ -28,38 +28,45 @@
       <%= msg %><h3>
         <% end %>
   </div>
-  <% if !@listing.empty? %>
+  <% if !@listing.empty?  %>
       <div class="graph">
         <% graph_h = "100%" %>
         <% if @graph.graph_type == 'bar' %>
-        <% if @graph.x_axis == 'city' %>
-        <%= bar_chart @listing.top(@graph.x_axis,10),download: 'column_chart',
-        xtitle: @graph.x_axis.upcase, ytitle: "Number of Job Listings", height: "#{graph_h}" %>
+          <% if @graph.x_axis == 'post_date' %>
+          <%= bar_chart @listing.group(:category).group_by_week(@graph.x_axis).count, height: "#{graph_h}" %>
+        <% elsif @graph.x_axis == 'city' %>
+          <% filter_listing_by_top_cities %>
+          <%= render_bar_graph %>
         <% else %>
-        <%= render_bar_graph %>
+          <%= render_bar_graph %>
         <% end %>
   <% elsif @graph.graph_type == 'line' %>
         <% if @graph.x_axis == 'city' %>
-        <%= line_chart @listing.top(@graph.x_axis,10),download: 'line_chart',
-        xtitle: @graph.x_axis.upcase, ytitle: "Number of Job Listings", height: "#{graph_h}" %>
-        <% else %>
-        <%= render_line_graph %>
+          <% filter_listing_by_top_cities %>
         <% end %>
+        <%= render_line_graph %>
+
   <% elsif @graph.graph_type == 'pie' %>
-        <% if @graph.x_axis == 'city' %>
-        <%= pie_chart @listing.top(@graph.x_axis, 10),download: 'pie_chart',
+        <% if @graph.x_axis == 'post_date' %>
+          <%= pie_chart @listing.group_by_week(@graph.x_axis).count, height: "#{graph_h}" %>
+        <% elsif @graph.x_axis == 'city' %>
+        <% filter_listing_by_top_cities %>
+        <%= pie_chart @listing.group(@graph.x_axis).count,download: 'pie_chart',
         xtitle: @graph.x_axis.upcase, ytitle: "Number of Job Listings", height: "#{graph_h}" %>
         <% else %>
         <%= pie_chart @listing.group(@graph.x_axis).count,download: 'pie_chart',
         xtitle: @graph.x_axis.upcase, ytitle: "Number of Job Listings", height: "#{graph_h}" %>
         <% end %>
   <% elsif @graph.graph_type == 'column' %>
-        <% if @graph.x_axis == 'city' %>
-        <%= column_chart @listing.top(@graph.x_axis,10),download: 'column_chart',
-        xtitle: @graph.x_axis.upcase, ytitle: "Number of Job Listings", height: "#{graph_h}" %>
+        <% if @graph.x_axis =='post_date' %>
+          <%= column_chart @listing.group(:category).group_by_week(@graph.x_axis).count, height: "#{graph_h}" %>
+        <% elsif @graph.x_axis == 'city' %>
+          <% filter_listing_by_top_cities %>
+
+          <%= column_chart @listing.group(:category).group(@graph.x_axis).count,download: 'column_chart',
+          xtitle: @graph.x_axis.upcase, ytitle: "Number of Job Listings", height: "#{graph_h}" %>
         <% else %>
-        <%= column_chart @listing.group(@graph.x_axis).count,download: 'column_chart',
-        xtitle: @graph.x_axis.upcase, ytitle: "Number of Job Listings", height: "#{graph_h}" %>
+          <%= render_column_graph %>
         <% end %>
       <% end %>
     <% end %>

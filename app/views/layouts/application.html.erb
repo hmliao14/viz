@@ -1,63 +1,67 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Viz</title>
-    <%= csrf_meta_tags %>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Oswald|Raleway" rel="stylesheet">
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  </head>
+<head>
+  <title>Viz</title>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Oswald|Raleway" rel="stylesheet">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
 
-  <body>
-    <div class="navbar-fixed">
-      <nav>
+<body>
+  <div class="navbar-fixed">
+    <nav>
       <div class="nav-wrapper text-white">
         <%= link_to "VIZ.DATA", root_path, class: "brand-logo" %>
         <a href="" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
           <li><%= link_to "Graphs", graphs_path %></li>
           <% if current_user %>
-            <li><%= link_to "Create", new_graph_path(current_user) %></li>
-            <li><%= link_to "Profile", user_path(current_user) %></li>
-            <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
+          <li><%= link_to "Create", new_graph_path(current_user) %></li>
+          <li><%= link_to "Profile", user_path(current_user) %></li>
+          <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
           <% else %>
-            <li><%= link_to "Sign Up", new_user_registration_path %></li>
-            <li><%= link_to "Sign In", new_user_session_path %></li>
+          <li><%= link_to "Sign Up", new_user_registration_path %></li>
+          <li><%= link_to "Sign In", new_user_session_path %></li>
           <% end %>
         </ul>
         <ul class="side-nav" id="mobile-demo">
 
           <% if current_user %>
-            <li><%= render partial: "layouts/prof_button_header"%></li>
-            <li><%= link_to "Home", root_path %></li>
-            <li><%= link_to "Graphs", graphs_path %></li>
-            <li><%= link_to "Create", new_graph_path(current_user) %></li>
-            <li><%= link_to "Profile", user_path(current_user) %></li>
-            <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
+          <li><%= render partial: "layouts/prof_button_header"%></li>
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Graphs", graphs_path %></li>
+          <li><%= link_to "Create", new_graph_path(current_user) %></li>
+          <li><%= link_to "Profile", user_path(current_user) %></li>
+          <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
           <% else %>
-            <li><%= link_to "Home", root_path %></li>
-            <li><%= link_to "Graphs", graphs_path %></li>
-            <li><%= link_to "Sign Up", new_user_registration_path %></li>
-            <li><%= link_to "Sign In", new_user_session_path %></li>
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Graphs", graphs_path %></li>
+          <li><%= link_to "Sign Up", new_user_registration_path %></li>
+          <li><%= link_to "Sign In", new_user_session_path %></li>
           <% end %>
         </ul>
       </div>
     </nav>
   </div>
 
-  <!-- Flash method for devise -->
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-
   <!-- This tag allows you to change to the css of a specific page -->
   <%= stylesheet_link_tag %>
   <%= yield(:head) %>
 
-    <%= yield %>
+  <div class="col s8 push-s2">
+    <% flash.each do |name, msg| %>
+    <div id='toast-container'>
+      <%= javascript_tag "Materialize.toast('#{msg}', 4000)" %>
+    </div>
+    <% end %>
+  </div>
+
+  <%= yield %>
 
 
-  </body>
+</body>
 </html>

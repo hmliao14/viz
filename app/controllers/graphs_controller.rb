@@ -92,7 +92,7 @@ class GraphsController < ApplicationController
         @graph.search_categories.destroy_all
         insert_categories
         if @graph.valid?
-          
+
           redirect_to graph_path(@graph)
         else
           flash[:error] = "A graphs title must be between 1 and 200 characters."
@@ -130,7 +130,7 @@ class GraphsController < ApplicationController
   end
 
   def graph_params
-    params.require(:graph).permit(:title, :x_axis, :graph_type)
+    params.require(:graph).permit(:title, :x_axis, :graph_type, :description)
     end
 
   def search_categories_params

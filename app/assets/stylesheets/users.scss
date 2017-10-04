@@ -8,7 +8,7 @@
     top: 0;
     bottom: 0;
     overflow: hidden;
-    padding-bottom: 2em;
+    padding: 1em;
 }
 #rightCol {
     position: absolute;
@@ -16,13 +16,14 @@
     bottom: 0;
     right: 0;
     overflow: scroll;
-    height: 80vh;
+    padding: 1em;
+    height: 88vh;
 }
 .row-user-page {
   position: relative;
 }
 .col-prof {
-  height: 85vh;
+  height: 90vh;
 }
 .outside-container-prof {
   height: 100%;

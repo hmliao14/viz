@@ -1,0 +1,12 @@
+<div><h5><%= @graph.title.capitalize %></h5>
+Author: <%= @graph.user.first_name + " " + @graph.user.last_name %></div>
+<div>
+  <ul>
+    Job Categories:
+    <% @graph.search_categories.each do | c| %>
+    <li> - <%= c.name %> </li>
+    <% end %>
+  </ul>
+</div>
+<div> Display Axis By: <%= @graph.x_axis %> </div>
+<div> Graph Type: <%= @graph.graph_type.capitalize %> Graph</div>

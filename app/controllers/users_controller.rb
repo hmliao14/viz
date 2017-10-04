@@ -12,7 +12,9 @@ class UsersController < ApplicationController
   def show
     @user = User.friendly.find(params[:slug])
     @graphs = @user.graphs
+
   end
+
 
   private
 

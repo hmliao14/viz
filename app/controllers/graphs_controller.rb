@@ -48,6 +48,29 @@ class GraphsController < ApplicationController
     category_restricts = category_restricts.join(" OR ")
     conditions = category_restricts
     @listing = JobListing.where(conditions)
+    if @listing.empty?
+      flash[:error] = "Sorry, there are no relevant results."
+    end
+  end
+
+  def copy
+    graph_id = params[:id]
+    @graph = Graph.find_by_id(graph_id)
+    if @graph.nil?
+      flash[:error] = "Sorry, this graph does not exist."
+    else
+      @graph_copy = Graph.new
+      @graph_copy[:title] = @graph.title
+      @graph_copy[:x_axis] = @graph.x_axis
+      @graph_copy[:graph_type] = @graph.graph_type
+      @graph_copy[:user_id] = current_user.id
+      if @graph_copy.save
+        redirect_to user_path(current_user)
+      else
+        flash[:error] = "Cant save a copy of this"
+        redirect_to graph_path(@graph)
+      end
+    end
 
   end
 
@@ -57,6 +80,7 @@ class GraphsController < ApplicationController
   end
 
   def update
+    fail
     if search_categories_params.permitted? && graph_params.permitted?
       graph_id = params[:id]
       @graph = Graph.find_by_id(graph_id)

@@ -1,5 +1,7 @@
 {
   "name": "viz",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "phantomjs": "^2.1.7"
+  }
 }

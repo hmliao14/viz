@@ -79,7 +79,7 @@ end
 response = HTTParty.get('https://authenticjobs.com/api/?api_key=6cf34b9cc6643879e6c569fa1e563917&method=aj.categories.getList&perpage=100&format=json')
 arr_categories = response.parsed_response["categories"]["category"]
 arr_categories.each do |category|
-  JobCategory.create(name: category["name"].gsub(' &amp;', " and"))
+  JobCategory.create(name: category["name"].gsub(' &amp;', " &"))
 end
 JobCategory.create(name: "All Categories")
 

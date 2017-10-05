@@ -1,12 +1,12 @@
-<div><h5><%= @graph.title.capitalize %></h5>
+<div><h5 class="pink-font str"><%= @graph.title.capitalize %></h5>
 Author: <%= @graph.user.first_name + " " + @graph.user.last_name %></div>
 <div>
   <ul>
-    Job Categories:
+    <div class="pink-font str">Job Categories:</div>
     <% @graph.search_categories.each do | c| %>
     <li> - <%= c.name %> </li>
     <% end %>
   </ul>
 </div>
-<div> Display Axis By: <%= @graph.x_axis %> </div>
-<div> Graph Type: <%= @graph.graph_type.capitalize %> Graph</div>
+<div> <div class="pink-font str">Group Job Categories By:</div> <%= @graph.x_axis.capitalize %> </div>
+<div> <div class="pink-font str">Graph Type:</div> <%= @graph.graph_type.capitalize %> Graph</div>

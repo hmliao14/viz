@@ -2,6 +2,14 @@ module GraphsHelper
 
   def render_bar_graph
     bar_chart @listing.group(:category).group(@graph.x_axis).count, download: 'bar_chart',
+    library: {options:{
+                legend:{
+                  labels:{
+                    fontColor: "red"
+                  }
+                }
+              }
+            },
     xtitle: @graph.x_axis.upcase, ytitle: "Number of Job Listings", height: "100%"
   end
 

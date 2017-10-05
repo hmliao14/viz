@@ -94,7 +94,7 @@ class GraphsController < ApplicationController
 
           redirect_to graph_path(@graph)
         else
-          flash[:error] = "A graphs title must be between 1 and 200 characters."
+          flash[:error] = "A graphs title must be between 1 and 15 characters."
           redirect_back fallback_location: edit_graph_path
         end
       else

@@ -33,11 +33,9 @@ $(document).on("turbolinks:load", function() {
     checkboxes.prop('checked', checked);
   });
 
-  $('.tgl_description').on('click', function(){
+  $('.tgl_desc_btn').on('click', function(){
     $('.toggle').toggle();
   });
-
-
 
 
 });

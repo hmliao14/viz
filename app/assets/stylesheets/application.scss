@@ -59,22 +59,55 @@ h6 {
   font-family: Oswald, sans-serif;
 }
 .graph_container {
+  margin: 20px 0 0 0;
   left:250px;
   height: calc(100vh - 100px);
   width: calc(100vw - 300px);
   position: absolute;
+  padding: 0 20px 50px 10px;
+  background-color: #EEF9F1;
 }
-.description_area{
+.description_container{
+  width: calc(90vw - 230px);
   left: 300px;
-  width: calc(100vw - 230px);
   top: 90vh;
   position: absolute;
   display: inline-block;
+  min-height: 108px;
+  color: white;
+}
+#plain_desc{
+    margin: 5px 0;
+    padding: 10px 12px;
+    border-top: 1px solid #EEF9F1;
+    min-height: 108px;
+}
+.description{
+  margin: 5px 0;
+  padding: 10px 12.25px;
+  min-height: 108px;
+  color: black;
+  background-color: #EEF9F1;
 }
 .hidden{
   display:none;
 }
-.tgl_description{
+.pink-font{
+  color:#DFA79E;
+}
+.str{
+  font-weight: bold;
+}
+.hidden_block{
+  position: absolute;
+  left: 250px;
+  top: 100vh;
+  background-color: red;
+  width: 300px;
+  height: 107px;
+  visibility: hidden;
+}
+.tgl_desc_btn{
   display: inline-block;
   position: relative;
 }
@@ -83,9 +116,22 @@ h6 {
   width:100%;
 }
 .left_nav_form {
-  padding-left: 15px;
+  font-size: 1rem;
+  padding: 0 15px 0 15px;
   position: absolute;
   width: 250px;
+  height: calc(100vh - 64px);
+}
+.left_nav_form input{
+  color: #EEF9F1 !important;
+  font-size: 1rem !important;
+  margin-bottom: 5px !important;
+}
+.left_nav_form label{
+  color: #EEF9F1;
+}
+#graph-title{
+  margin: 0 !important;
 }
 .select-dropdown{
   font-size: 12px;
@@ -95,7 +141,7 @@ h6 {
 }
 input.select-dropdown {
   margin: 0 !important;
-  padding: 0;
+  height: 30px !important;
 }
 .error{
   font-size: 20px;

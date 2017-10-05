@@ -52,7 +52,7 @@
   <%= stylesheet_link_tag %>
   <%= yield(:head) %>
 
-  <div class="col s8 push-s2">
+  <div class="col s8">
     <% flash.each do |name, msg| %>
     <div id='toast-container'>
       <%= javascript_tag "Materialize.toast('#{msg}', 4000)" %>

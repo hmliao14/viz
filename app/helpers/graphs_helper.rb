@@ -6,6 +6,11 @@ module GraphsHelper
     xtitle: @graph.x_axis.upcase, ytitle: "Number of Job Listings", height: "100%"
   end
 
+  def render_pie_graph
+    pie_chart @listing.group(@graph.x_axis).count,download: 'pie_chart',
+    xtitle: @graph.x_axis.upcase, ytitle: "Number of Job Listings", height: "100%"
+  end
+
   def render_line_graph
     line_chart @listing.group(:category).group(@graph.x_axis).count,
     download: 'line_chart',

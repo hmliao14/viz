@@ -72,6 +72,19 @@ h6 {
   width: calc(100vw - 300px);
   position: absolute;
 }
+.description_area{
+  left: 300px;
+  width: calc(100vw - 300px);
+  position: relative;
+  display: inline-block;
+}
+.hidden{
+  display:none;
+}
+.tgl_description{
+  display: inline-block;
+  position: relative;
+}
 .graph {
   height:100%;
   width:100%;

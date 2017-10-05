@@ -40,8 +40,6 @@ class GraphsController < ApplicationController
   end
 
   def show
-
-
     graph_id = params[:id]
     @graph = Graph.find_by_id(graph_id)
     category_restricts = @graph.search_categories.map { |category|
@@ -68,6 +66,7 @@ class GraphsController < ApplicationController
       @graph_copy[:x_axis] = @graph.x_axis
       @graph_copy[:graph_type] = @graph.graph_type
       @graph_copy[:user_id] = current_user.id
+      @graph_copy[:description] = @graph.description
       if @graph_copy.save
         redirect_to user_path(current_user)
       else
@@ -92,7 +91,7 @@ class GraphsController < ApplicationController
         @graph.search_categories.destroy_all
         insert_categories
         if @graph.valid?
-          
+
           redirect_to graph_path(@graph)
         else
           flash[:error] = "A graphs title must be between 1 and 200 characters."
@@ -130,7 +129,7 @@ class GraphsController < ApplicationController
   end
 
   def graph_params
-    params.require(:graph).permit(:title, :x_axis, :graph_type)
+    params.require(:graph).permit(:title, :x_axis, :graph_type, :description)
     end
 
   def search_categories_params

@@ -17,7 +17,7 @@
       <div class="description_area row">
         <p class="toggle col s10"><%= @graph.description %> </p>
         <p class="toggle hidden col s10">
-          <%= f.text_area :description %>
+          <%= f.text_area :description, placeholder: "Graph Description Goes Here"%>
         </p>
         <a type="button" class="tgl_description btn-floating right col s2">
           <i class="medium material-icons">mode_edit</i>
@@ -28,7 +28,9 @@
   <% else %>
       <!-- else logged in used is diff from graph creator,enable save collection to logged in user to their own Profile -->
         <%= render "partial/graph_info" %><br>
-
+        <div class="description_area row">
+            <p class="col s10"> <%= @graph.description %> </p>
+        </div>
         <%= form_for @graph, url: copy_graph_path, method: "post" do |f|   %>
         <%= f.submit "Copy to Profile", class: "btn" %>
         <% end %>
@@ -88,6 +90,3 @@
   </div>
 </div>
 <!-- end of graph container -->
-<div class="description_area row">
-    <p class="toggle col"> <%= @graph.description %> </p>
-</div>

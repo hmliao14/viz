@@ -66,8 +66,9 @@ h6 {
 }
 .description_area{
   left: 300px;
-  width: calc(100vw - 300px);
-  position: relative;
+  width: calc(100vw - 230px);
+  top: 90vh;
+  position: absolute;
   display: inline-block;
 }
 .hidden{

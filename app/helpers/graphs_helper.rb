@@ -1,8 +1,15 @@
 module GraphsHelper
 
   def render_bar_graph
-    bar_chart @listing.group(:category).group(@graph.x_axis).count,
-    download: 'bar_chart',
+    bar_chart @listing.group(:category).group(@graph.x_axis).count, download: 'bar_chart',
+    library: {options:{
+                legend:{
+                  labels:{
+                    fontColor: "red"
+                  }
+                }
+              }
+            },
     xtitle: @graph.x_axis.upcase, ytitle: "Number of Job Listings", height: "100%"
   end
 
@@ -12,14 +19,12 @@ module GraphsHelper
   end
 
   def render_line_graph
-    line_chart @listing.group(:category).group(@graph.x_axis).count,
-    download: 'line_chart',
+    line_chart @listing.group(:category).group(@graph.x_axis).count, download: 'line_chart',
     xtitle: @graph.x_axis.upcase, ytitle: "Number of Job Listings", height: "100%"
   end
 
   def render_column_graph
-    column_chart @listing.group(:category).group(@graph.x_axis).count,
-    download: 'column_chart',
+    column_chart @listing.group(:category).group(@graph.x_axis).count, download: 'column_chart',
     xtitle: @graph.x_axis.upcase, ytitle: "Number of Job Listings", height: "100%"
   end
 

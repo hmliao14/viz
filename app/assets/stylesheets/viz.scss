@@ -8,7 +8,7 @@
   background: image-url("structure_02.jpg") bottom center no-repeat;
   background-size: cover;
   z-index: -1;
-  margin-top: -80px;
+  margin-top: -65px;
 }
 
 .text-header {
@@ -41,7 +41,7 @@
   background: image-url("cover_building_01.jpg") bottom center no-repeat;
   background-size: cover;
 }
-.viz-row-cover {
+.viz-info {
   height: 100vh;
   position: relative
 }
@@ -57,11 +57,11 @@
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
-.strip-vert-text {
+.strip-cont {
   color:  #EFF9F0;
-  text-shadow: 5px 5px black;
+  text-shadow: 1px 1px 4px black;
 }
-a.strip-vert-text:hover {
+.strip-cont:hover {
   color: #DA9F93;
 }
 .strip-vert-text {

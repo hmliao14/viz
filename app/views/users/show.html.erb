@@ -13,7 +13,7 @@
                 <% if @user.image.empty? %>
                 <%= image_tag(asset_path('default_profile_image.jpg'), class: "circle") %>
                 <% else %>
-                <%= image_tag(@user.image, class: "circle") %>
+                <%= image_tag(@user.image, class: "circle circle-prof") %>
                 <% end %>
               </div>
               <!-- BEGIN row for name -->

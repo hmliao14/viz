@@ -50,92 +50,81 @@ body {
       <h4>OUR<span class="text-prim-color"> INFORMATION</span></h4>
     </div>
     <div class="row strip-row">
-      <div class="col s4 m2 strip strip-1">
-        <%= link_to "BACK END WEB DEVELOPMENT", href="#def-back", class: "strip-vert-text modal-trigger"%>
-        <div class="viz-transparent">
+      <a href="#def-back" class="modal-trigger">
+        <div class="col s4 m2 strip strip-1">
+          <p class="strip-vert-text">BACK END WEB DEVELOPMENT</p>
+          <div class="viz-transparent">
+          </div>
         </div>
-      </div>
-      <div class="col s4 m2 strip strip-2">
-        <%= link_to "FRONT END WEB DEVELOPMENT", href="#def-front", class: "strip-vert-text modal-trigger" %>
-        <div class="viz-transparent">
+      </a>
+      <a href="#def-front" class="modal-trigger">
+        <div class="col s4 m2 strip strip-2">
+          <p class="strip-vert-text">FRONT END WEB DEVELOPMENT</p>
+          <div class="viz-transparent">
+          </div>
         </div>
-      </div>
-      <div class="col s4 m2 strip strip-3">
-        <%= link_to "PRODUCT MANAGEMENT", href="#def-prod-man", class: "strip-vert-text modal-trigger" %>
-        <div class="viz-transparent">
+      </a>
+      <a href="#def-prod-man" class="modal-trigger">
+        <div class="col s4 m2 strip strip-3">
+          <p class="strip-vert-text">PRODUCT MANAGEMENT</p>
+          <div class="viz-transparent">
+          </div>
         </div>
-      </div>
-      <div class="col s4 m2 strip strip-4">
-        <%= link_to "UX DESIGN", href="#def-ux", class: "strip-vert-text modal-trigger"  %>
-        <div class="viz-transparent">
+      </a>
+      <a href="#def-ux" class="modal-trigger">
+        <div class="col s4 m2 strip strip-4">
+          <p class="strip-vert-text">UX Design</p>
+          <div class="viz-transparent">
+          </div>
         </div>
-      </div>
-      <div class="col s4 m2 strip strip-5">
-        <%= link_to "MARKETING", href="#def-marketing", class: "strip-vert-text modal-trigger"  %>
-        <div class="viz-transparent">
-        </div>
-      </div>
-      <div class="col s4 m2 strip strip-6">
-        <%= link_to "MANAGEMENT", href="#def-management", class: "strip-vert-text modal-trigger"  %>
-        <div class="viz-transparent">
-        </div>
+      </a>
+      <a href="#def-marketing" class="modal-trigger">
+        <div class="col s4 m2 strip strip-5">
+          <p class="strip-vert-text">MARKETING</p>
+            <div class="viz-transparent">
+            </div>
+          </div>
+        </a>
+        <a href="#def-management" class="modal-trigger">
+          <div class="col s4 m2 strip strip-6">
+            <p class="strip-vert-text">MANAGEMENT</p>
+            <div class="viz-transparent">
+            </div>
+          </div>
+        </a>
       </div>
     </div>
   </div>
-</div>
 
-
-<div class="modal-for-show">
-  <div id="def-back" class="modal center-align">
-    <div class="modal-content">
-      <%= render partial: "layouts/def_back_end"%>
+  <div class="modal-for-show">
+    <div id="def-back" class="modal center-align">
+      <div class="modal-content">
+        <%= render partial: "layouts/def_back_end"%>
+      </div>
+    </div>
+    <div id="def-front" class="modal center-align">
+      <div class="modal-content">
+        <%= render partial: "layouts/def_front_end"%>
+      </div>
+    </div>
+    <div id="def-prod-man" class="modal center-align">
+      <div class="modal-content">
+        <%= render partial: "layouts/def_prod_man"%>
+      </div>
+    </div>
+    <div id="def-ux" class="modal center-align">
+      <div class="modal-content">
+        <%= render partial: "layouts/def_ux"%>
+      </div>
+    </div>
+    <div id="def-marketing" class="modal center-align">
+      <div class="modal-content">
+        <%= render partial: "layouts/def_marketing"%>
+      </div>
+    </div>
+    <div id="def-management" class="modal center-align">
+      <div class="modal-content">
+        <%= render partial: "layouts/def_management"%>
+      </div>
     </div>
   </div>
-  <div id="def-front" class="modal center-align">
-    <div class="modal-content">
-      <%= render partial: "layouts/def_front_end"%>
-    </div>
-  </div>
-  <div id="def-prod-man" class="modal center-align">
-    <div class="modal-content">
-      <%= render partial: "layouts/def_prod_man"%>
-    </div>
-  </div>
-  <div id="def-ux" class="modal center-align">
-    <div class="modal-content">
-      <%= render partial: "layouts/def_ux"%>
-    </div>
-  </div>
-  <div id="def-marketing" class="modal center-align">
-    <div class="modal-content">
-      <%= render partial: "layouts/def_marketing"%>
-    </div>
-  </div>
-  <div id="def-management" class="modal center-align">
-    <div class="modal-content">
-      <%= render partial: "layouts/def_management"%>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="row">
-    <div class="col s4">
-  <div class="card">
-
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator card-hover" src="assets/structure_01.jpg">
-      <h5 class="card-title">Back End Web Development</h5>
-    </div>
-    <!-- <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-      <p><a href="#">This is a link</a></p>
-    </div> -->
-    <!-- <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-      <p>Here is some more information about this product that is only revealed once clicked on.</p>
-    </div> -->
-  </div>
-</div>
-</div>
-</div>

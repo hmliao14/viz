@@ -58,14 +58,6 @@ h6 {
   letter-spacing: 5px;
   font-family: Oswald, sans-serif;
 }
-.formA {
-  width: 800px;
-  margin: 0 auto;
-  text-align: left;
-}
-.formA label{
-  margin: 10px 20px;
-}
 .graph_container {
   left:250px;
   height: calc(100vh - 100px);
@@ -180,4 +172,13 @@ input.select-dropdown {
 }
 .pagination_page_info {
   padding: 2rem 0;
+}
+.flashmessage {
+  border-style: solid;
+  border-color: black;
+  background-color: rgba(255, 0, 0, 0.2);
+  font-size: 120%;
+  text-align: center;
+  margin-top: 2%;
+  padding: 2%
 }

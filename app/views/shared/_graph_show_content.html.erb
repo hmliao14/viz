@@ -12,6 +12,6 @@
 <div class="col s12 m10">
   <p><b>Author: </b><%= link_to "#{graph.user.first_name} #{graph.user.last_name}", user_path(graph.user.slug) %></p>
   <p><b>Creation Date: </b><%= graph.user.created_at.strftime("%B").to_s + " " + graph.user.created_at.day.to_s + ", " + graph.user.created_at.year.to_s%></p>
-  <p><b>Description: </b><%= link_to "#{graph.description}", user_path(graph.user.slug) %>
+  <p><b>Description: </b><%= graph.description %>
   <%= link_to "Review full details", graph_path(graph.id) %></p>
 </div>

@@ -57,8 +57,9 @@
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
-a.strip-vert-text {
-  color: #EFF9F0;
+.strip-vert-text {
+  color:  #EFF9F0;
+  text-shadow: 5px 5px black;
 }
 a.strip-vert-text:hover {
   color: #DA9F93;
@@ -71,10 +72,10 @@ a.strip-vert-text:hover {
   width: 300px;
   transform: rotate(270deg);
   transform-origin: left bottom 0;
-  z-index: 1;
+  z-index: 5;
 }
 .viz-transparent {
-    background-color: rgba(17, 17, 17, 0.3);
+    background-color: rgba(17, 17, 17, 0.4);
     position: absolute;
     top: 0;
     left: 0;
@@ -89,6 +90,10 @@ a.strip-vert-text:hover {
 .strip-1 {
   background: image-url("strip_back_end.png") no-repeat;
   background-size: 100% 100%;
+}
+.viz-transparent:hover {
+  background-color: rgba(17, 17, 17, 0.8);
+  z-index: 2;
 }
 .strip-2 {
   background: image-url("strip_front_end.png") no-repeat;

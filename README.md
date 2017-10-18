@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Readme will be updated soon...
 
-Things you may want to cover:
+The depolyed site is currently hosted at:
 
-* Ruby version
+https://ancient-reaches-44992.herokuapp.com
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Stay tuned...

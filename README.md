@@ -12,8 +12,17 @@ In the graph's create page, user can choose the types of job categories they wan
 
 The graph is displayed as customized, with corresponding labels and legends next to the graph. The length or segment of chart is aggregated by counts. 
 
+## Technology Used:
+** Ruby on Rails
+** PostgreSQL
+** Javascript
+** ChartkickJS
+** HTML
+** CSS
+** Materialize
+
 ## Credits 
 
-Carlynn Espinoza
-Huan Ming Liao
-Anthony Greenwell
+Carlynn Espinoza . 
+Huan Ming Liao . 
+Anthony Greenwell . 

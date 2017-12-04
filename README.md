@@ -15,24 +15,17 @@ The graph is displayed as customized, with corresponding labels and legends next
 ## Technology Used:
 * Ruby on Rails  
 
-
 * PostgreSQL  
-
 
 * Javascript
 
-
 * ChartkickJS
-
 
 * HTML
 
-
 * CSS
 
-
 * Materialize
-
 
 ## Credits 
 
